@@ -36,6 +36,7 @@
     <div>
         <input type="text" id="nome" placeholder="Informe nome" />
         <input type="text" id="sobrenome" placeholder="Informe sobrenome" />
+        <input type="number" id="idade" placeholder="Informe sua idade" />
         <hr />
         <button onclick="ola()">Mostrar mensagem</button>
         <label id="nomeCompleto"></label>
@@ -43,10 +44,34 @@
 
     <script>
         function ola() {
-            let nome = document.getElementById("nome").value;
-            let sobrenome = document.getElementById("sobrenome").value;
+            let nome = document.getElementById("nome");
+            if (nome.value === "") {
+                document.getElementById("nomeCompleto").innerHTML = "Informe nome";
+                nome.focus();
+                return;
+            }
+            let sobrenome = document.getElementById("sobrenome");
+            if (sobrenome.value === "") {
+                document.getElementById("nomeCompleto").innerHTML = "Informe sobrenome";
+                sobrenome.focus();
+                return;
+            }
+            
+            let idade = document.getElementById("idade").value;
 
-            document.getElementById("nomeCompleto").innerHTML = nome + "" + sobrenome;
+            if (idade === "") {
+                document.getElementById("nomeCompleto").innerHTML = "Informe sua idade";
+                document.getElementById("idade").focus();
+                return;
+            }
+
+            let msg = nome.value + " " + sobrenome.value + ", " + "você tem " + idade + " anos, portanto você é maior de idade!";
+            if (idade < 18) {
+                msg = nome.value + " " + sobrenome.value + ", " + "você tem " + idade + " anos, portanto você é menor de idade!";
+            }
+
+
+            document.getElementById("nomeCompleto").innerHTML = msg;
         }
     </script>
 </body>
