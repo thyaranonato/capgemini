@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+        }
+
+        .container {
+            background-color: gray;
+            width: 100%;
+            padding: 15px;
+        }
+
+        div {
+            border: 1px solid black;
+            width: 100%;
+            color: black;
+            display: inline-block;
+        }
+
+        .ordenada {
+            width: 49%;
+            background-color: cyan;
+            padding-left: 30px;
+        }
+
+        .desordenada {
+            width: 50%;
+            background-color:antiquewhite;
+            padding-left: 30px;
+        }
+
+        .ul1 {
+            list-style: circle;
+        }
+
+        .ul2 {
+            list-style:square;
+        }
+
+        .ol2 {
+            list-style:upper-roman;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="desordenada">
+            <h1>Unordered Lists:</h1>
+            <ul class="ul1">
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Coca Cola</li>
+            </ul>
+            <ul class="ul2">
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Coca Cola</li>
+            </ul>
+        </div>
+        <div class="ordenada">
+            <h1>Ordered Lists:</h1>
+            <ol>
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Coca Cola</li>
+            </ol>
+            <ol class="ol2">
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Coca Cola</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
