@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="estilos/cadastro.css">
+    <script src="scripts/cadastro.js"></script>
 </head>
 <body>
-    
+    <div>
+        <form action="#" method="POST">
+            <label for="nome">Nome:</label>
+            <input id="nome" type="text" placeholder="Informe nome" required>
+            <input id="idade" type="number" placeholder="Informe idade" min="0" required>
+            <input id="email" type="email" placeholder="Informe email" required>
+            <input required id="date" type="date">
+            <input id="datetime" type="datetime-local" required>
+            <ol>
+                <li>
+                    <input type="checkbox" id="livros">
+                    <label for="livros">Livros</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="musicas">
+                    <label for="musicas">Músicas</label>
+                </li>
+            </ol>
+            <input type="radio" name="genero" checked>Feminino</input>
+            <input type="radio" name="genero">Masculino</input>
+            <input type="password" placeholder="Informe senha" pattern="[0-9]{3}" required>
+            <textarea cols="30" rows="10" style="resize: none;"></textarea>
+            <select name="" id="" required>
+                <option value="1">Açougue</option>
+                <option value="2">Frutas</option>
+                <option value="3">Verduras</option>
+            </select>
+            <img src="/imagens/curiosidades-sobre-leao2.jpg" alt="Leão" width="100px" height="100px">
+            <input type="file" placeholder="Informe a imagem">
+            <button onclick="onSubmit()">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>
