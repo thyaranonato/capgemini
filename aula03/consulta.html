@@ -7,7 +7,7 @@
     <title>Consulta</title>
     <link rel="stylesheet" href="estilos//consulta.css">
 </head>
-<body>
+<body onload="load()">
     <table>
         <thead>
             <tr>
@@ -18,31 +18,29 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>José da Silva</td>
-                <td>3395-1789</td>
-                <td>jose@gmail.com</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Maria da Silva</td>
-                <td>3395-1789</td>
-                <td>maria@gmail.com</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Antônio da Silva</td>
-                <td>3395-1789</td>
-                <td>antonio@gmail.com</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Luis da Silva</td>
-                <td>3395-1789</td>
-                <td>luis@gmail.com</td>
-            </tr>
+           <!--O conteúdo deste bloco será gerado pela função display-->>
         </tbody>
     </table>
+    <script>
+        function load() {
+            fetch("http://localhost:3000/contatos")
+                .then(x => x.text())
+                .then(dados => display(dados));
+        }
+
+        function display(lista) {
+            let dados = JSON.parse(lista);
+            let trs = "";
+            for(let obj in dados) {
+                trs += "<tr>"
+                trs += "<td>" + dados[obj].id + "</td>"
+                trs += "<td>" + dados[obj].nome + "</td>"
+                trs += "<td>" + dados[obj].fone + "</td>"
+                trs += "<td>" + dados[obj].email + "</td>"
+                trs += "</tr>"
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = trs;
+        }
+    </script>
 </body>
 </html>
