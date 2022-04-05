@@ -1,0 +1,28 @@
+{
+    "categorias": [
+        {
+            "id": 1,
+            "descricao": "Esportes"
+        },
+        {
+            "id": 2,
+            "descricao": "Veículos"
+        },
+        {
+            "id": 3,
+            "descricao": "Tecnologia"
+        },
+        {
+            "id": 4,
+            "descricao": "Moda"
+        },
+        {
+            "id": 5,
+            "descricao": "Beleza"
+        },
+        {
+            "id": 6,
+            "descricao": "Saúde"
+        }
+    ]
+}

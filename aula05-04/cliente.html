@@ -4,9 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cliente</title>
+    <title>Cadastro de Cliente</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            background-color:#BA55D3;
+            padding: 20px;
+            margin: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        h2 {
+            margin-bottom: 15px;
+        }
+        .btn {
+            border-radius: 5px;
+            color: azure;
+            padding: 3px;
+            background-color: #DA70D6;
+        }
+    </style>
 </head>
 <body>
-    <h1>Cadastro de clientes</h1>
+    <header> <h1>Cadastro de cliente</h1></header>
+    <main>
+        <h2>Para fazer o cadastro preencha o formulário abaixo com os seus dados</h2>
+        <form action="#" method="POST" class="form">
+            <fieldset>
+                <legend>Dados pessoais:</legend>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="Informe o seu nome" required>
+    
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" id="telefone" placeholder="Informe o seu telefone" required>
+                
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" placeholder="Informe o seu email" required>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Endereço residencial:</legend>
+                    <label for="rua">Rua:</label>
+                    <input type="text" name="rua" id="rua" placeholder="Informe a rua" required>
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" name="bairro" id="bairro" placeholder="Informe o bairro" required>
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" name="cidade" id="cidade" placeholder="Informe a cidade" required>
+                    <label for="cep">CEP:</label>
+                    <input type="text" name="cep" id="cep" placeholder="Informe o CEP" required>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Dados financeiros:</legend>
+                <label for="credito">Limite de crédito:</label>
+                <input type="text" name="credito" id="credito" placeholder="Informe o seu limite de crédito" required>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Foto pessoal:</legend>
+                <input type="file" placeholder="Informe uma imagem" required/>
+            </fieldset>
+            <br>
+            <button class="btn" type="submit">Salvar</button>
+            <button class="btn" type="reset">Cancelar</button>
+        </form>
+    </main>
 </body>
 </html>
