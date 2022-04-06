@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: auto;
+        }
+        input {
+            width: 100%;
+        }
+        button {
+            margin-top: 10px;
+        }
+        label span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" placeholder="Informe o nome" onblur="limpaMsg()">
+                <label id="msgNome"></label>
+            </div>
+
+            <div>
+                <label for="fone">Fone:</label>
+                <input type="text" id="fone" placeholder="Informe o telefone" onblur="limpaMsg2()">
+                <label id="msgFone"></label>
+            </div>
+        </form>
+        <div>
+            <button onclick="OnSubmit()">Salvar</button>
+        </div>   
+    </div>   
+    <script>
+        function limpaMsg() {
+            let nome = document.getElementById("nome");
+            if(nome.value !== "") {
+                document.getElementById("msgNome").innerHTML = "";
+            }
+        }
+
+        function limpaMsg2() {
+            let fone = document.getElementById("fone");
+            if(fone.value !== "") {
+                document.getElementById("msgFone").innerHTML = "";
+            }
+        }
+
+        function OnSubmit() {
+            let nome = document.getElementById("nome");
+            if(nome.value === "") {
+                document.getElementById("msgNome").innerHTML = "<span>Informe nome</span>";
+                nome.focus();
+                return;
+            }
+
+            let fone = document.getElementById("fone");
+            if(fone.value === "") {
+                document.getElementById("msgFone").innerHTML = "<span>Informe o telefone</span>";
+                fone.focus();
+                return;
+            }
+            document.getElementsByName("form")[0].submit();
+        }
+    </script>
+</body>
+</html>
