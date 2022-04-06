@@ -2,27 +2,27 @@
     "categorias": [
         {
             "id": 1,
-            "descricao": "Esportes"
+            "nome": "Esportes"
         },
         {
             "id": 2,
-            "descricao": "Veículos"
+            "nome": "Veículos"
         },
         {
             "id": 3,
-            "descricao": "Tecnologia"
+            "nome": "Tecnologia"
         },
         {
             "id": 4,
-            "descricao": "Moda"
+            "nome": "Moda"
         },
         {
             "id": 5,
-            "descricao": "Beleza"
+            "nome": "Beleza"
         },
         {
             "id": 6,
-            "descricao": "Saúde"
+            "nome": "Saúde"
         }
     ]
 }

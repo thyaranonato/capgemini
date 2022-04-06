@@ -54,9 +54,8 @@
         <br>
         <fieldset>
             <legend>Informações da categoria:</legend>
-            <label for="select">Informe a categoria do produto cadastrado:</label>
-            <select name="select" id="select" required>
-            </select>
+            <label for="categoria">Informe a categoria do produto cadastrado:</label>
+            <select id="categoria" required></select>
         </fieldset>
         <br>
         <button type="submit" class="btn">Salvar</button>
@@ -65,19 +64,18 @@
    </main>
    <script>
        function load() {
-        fetch("http://localhost:3000/categorias")
-            .then(x => x.text())
-            .then(dados => display(dados));
+            fetch("http://localhost:3000/categorias")
+                .then(x => x.text())
+                .then(lista => display(lista));
        }
 
-       function display(lista) {
-            let dados = JSON.parse(lista)
-            console.log(dados);
-            var slct = ""
-            for (let obj in dados) {
-                slct += "<option>" + dados[obj].id + " - " + dados[obj].descricao + "</option>"
+       function display(dados) {
+            let lista = JSON.parse(dados)
+            var option = ""
+            for (let obj in lista) {
+                option += "<option let=" + lista[obj].id + ">" + lista[obj].nome + "</option>"
             }
-            document.getElementsByTagName("select")[0].innerHTML = slct;
+            document.getElementById("categoria").innerHTML = option;
         }
    </script>
 </body>
