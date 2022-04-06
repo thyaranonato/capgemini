@@ -36,17 +36,26 @@
    <header><h1 class="fs-1 fw-bolder">Cadastro de produtos</h1></header>
    <main class="container-fluid">
         <h2 class="fs-3 fst-italic">Preencha o formulário abaixo para cadastrar o seu produto</h2>
-        <form action="#" method="POST" class="form">
+        <form action="#" method="POST" class="was-validated" novalidate>
             <div class="mb-3">
                 <fieldset>
                     <legend class="fw-bolder">Descrição do produto:</legend>
-                    <textarea name="descricao" id="descricao" style="resize: none;" class="form-control"></textarea>
+                    <textarea name="descricao" id="descricao" style="resize: none;" class="form-control" required></textarea>
+                    <div class="invalid-feedback">
+                        É necessário fazer a descrição do produto.
+                    </div>
                     <div>
                         <label class="form-label fs-4 fst-italic" for="preco">Preço unitário:</label>
                         <input type="text" name="preco" id="preco" placeholder="Informe o preço unitário" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Informe o preço unitário do produto.
+                        </div>
 
                         <label class="form-label fs-4 fst-italic" for="unidade">Unidade de medida:</label>
                         <input type="text" name="unidade" id="unidade" placeholder="Informe a unidade de medida" class="form-control"  required>
+                        <div class="invalid-feedback">
+                            Informe a unidade de medida do produto.
+                        </div>
                     </div>
                 </fieldset>
             </div>
@@ -54,7 +63,10 @@
             <div class="mb-3">
                 <fieldset>
                     <legend class="fw-bolder">Informações do fornecedor:</legend>
-                    <textarea name="fornecedor" id="fornecedor" style="resize: none;" class="form-control"></textarea>
+                    <textarea name="fornecedor" id="fornecedor" style="resize: none;" class="form-control" required></textarea>
+                    <div class="invalid-feedback">
+                        É necessário preencher com as informações do fornecedor.
+                    </div>
                 </fieldset>
             </div>
             <br>
@@ -63,6 +75,9 @@
                     <legend class="fw-bolder">Informações da categoria:</legend>
                     <label class="form-label fs-4 fst-italic" for="categoria">Informe a categoria do produto cadastrado:</label>
                     <select class="form-select" id="categoria" required></select>
+                    <div class="invalid-feedback">
+                        É necessário selecionar a categoria do produto.
+                    </div>
                 </fieldset>
             </div>
             <br>
