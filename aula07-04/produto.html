@@ -122,8 +122,6 @@
                     'Content-Type': 'application/json'
                 }
             })
-            .then(ct => ct.json())
-            .then(x => console.log(x))
         }
 
        function load() {
@@ -148,7 +146,7 @@
 
        function display(dados) {
             let lista = JSON.parse(dados)
-            let option = ""
+            let option = "<option selected>Selecione...</option>"
             for (let obj in lista) {
                 option += "<option let=" + lista[obj].id + ">" + lista[obj].nome + "</option>"
             }
