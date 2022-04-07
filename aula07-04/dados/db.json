@@ -42,5 +42,75 @@
       "email": "thyaranonato@outlook.com",
       "id": 7
     }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Esportes"
+    },
+    {
+      "id": 2,
+      "nome": "Veículos"
+    },
+    {
+      "id": 3,
+      "nome": "Tecnologia"
+    },
+    {
+      "id": 4,
+      "nome": "Moda"
+    },
+    {
+      "id": 5,
+      "nome": "Beleza"
+    },
+    {
+      "id": 6,
+      "nome": "Saúde"
+    }
+  ],
+  "fornecedores": [
+    {
+      "id": 1,
+      "nome": "Um"
+    },
+    {
+      "id": 2,
+      "nome": "Dois"
+    },
+    {
+      "id": 3,
+      "nome": "Três"
+    },
+    {
+      "id": 4,
+      "nome": "Quatro"
+    },
+    {
+      "id": 5,
+      "nome": "Cinco"
+    },
+    {
+      "id": 6,
+      "nome": "Seis"
+    }
+  ],
+  "produtos": [
+    {
+      "descricao": "Bola de Gude",
+      "preco": "5.00",
+      "estoque": "30",
+      "fornecedor": "Cinco",
+      "categoria": "Esportes",
+      "id": 1
+    },
+    {
+      "descricao": "Carro",
+      "preco": "90000",
+      "estoque": "2",
+      "fornecedor": "Um",
+      "categoria": "Veículos",
+      "id": 2
+    }
   ]
 }
