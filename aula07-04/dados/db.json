@@ -1,0 +1,41 @@
+{
+    "contatos": [
+        {
+            "id": 1,
+            "nome": "Ana",
+            "fone": "(48)99999-9999",
+            "email": "ana@gmail.com"
+        },
+        {
+            "id": 2,
+            "nome": "Paulo",
+            "fone": "(48)99999-9999",
+            "email": "paulo@gmail.com"
+        },
+        {
+            "id": 3,
+            "nome": "João",
+            "fone": "(48)99999-9999",
+            "email": "joao@gmail.com"
+            
+        },
+        {
+            "id": 4,
+            "nome": "Maria",
+            "fone": "(48)99999-9999",
+            "email": "maria@gmail.com"
+        },
+        {
+            "id": 5,
+            "nome": "Pedro",
+            "fone": "(48)99999-9999",
+            "email": "pedro@gmail.com"
+        },
+        {
+            "id": 6,
+            "nome": "Antônio",
+            "fone": "(48)99999-9999",
+            "email": "antonio@gmail.com"
+        }
+    ]
+}
