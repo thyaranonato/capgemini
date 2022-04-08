@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 80px;
+            background-color:rgba(205, 92, 92, 0.253);
+        }
+        .botoes {
+            margin-top: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 2px;
+            margin-left: 8px;
+        }
+
+        .container {
+            padding: 15px 5px;
+            background-color:darkslategrey;
+            width: 180px;
+            height: 230px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        button {
+            margin: 2px;
+            width: 35px;
+            height: 35px;
+            background-color: antiquewhite;
+        }
+
+        input {
+            margin-left: 5px;
+            background-color: antiquewhite;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="display">
+        <div class="botoes">
+            <button onclick="addDigito(this)">0</button>
+            <button onclick="addDigito(this)">1</button>
+            <button onclick="addDigito(this)">2</button>
+            <button onclick="addDigito(this)">3</button>         
+            <button onclick="addDigito(this)">4</button>
+            <button onclick="addDigito(this)">5</button>
+            <button onclick="addDigito(this)">6</button>
+            <button onclick="addDigito(this)">7</button>
+            <button onclick="addDigito(this)">8</button>
+            <button onclick="addDigito(this)">9</button>
+
+            <button onclick="addDigito(this)">.</button>
+            <button onclick="limpar()">C</button>
+
+            <button id="soma" onclick="informarOperacao(this)">+</button>
+            <button id="subtrai" onclick="informarOperacao(this)">-</button>
+            <button id="multiplica" onclick="informarOperacao(this)">*</button>
+            <button id="divide" onclick="informarOperacao(this)">/</button>
+
+            <button onclick="calcular()" style="width: 155px">=</button>
+        </div>
+    </div>
+    <script>
+        let operacao = "";
+        let n1 = "";
+
+        function addDigito(dig) {
+            let valorDisplay = document.getElementById('display').value;
+            document.getElementById('display').value = valorDisplay + dig.innerText;
+        }
+
+        function limpar() {
+            document.getElementById('display').value = "";
+            document.getElementById('display').focus();
+        }
+
+        function informarOperacao(op) {
+            n1 = document.getElementById('display').value;
+            document.getElementById('display').value = ""
+            operacao = op.innerText;
+        }
+
+        function calcular() {
+            let n2 = document.getElementById('display').value;
+            let resultado = eval(`${n1}${operacao}${n2}`);
+            document.getElementById('display').value = resultado;
+        }
+    </script>
+</body>
+</html>
