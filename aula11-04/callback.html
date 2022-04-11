@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="" id="n1" placeholder="Informe número">
+    <input type="number" name="" id="n2" placeholder="Informe número">
+    <button onclick="onCalcular()">Calcular</button>
+    <button onclick="onCalcular2()">Calcular</button>
+    <hr>
+    <p></p>
+    <script>
+        // callback: função passada como parâmetro para outra função
+        function onCalcular() {
+            let n1 = parseInt(document.getElementById("n1").value);
+            let n2 = parseInt(document.getElementById("n2").value);
+            calcular(n1, n2, mostraEmParagrafo);
+        }
+
+        function onCalcular2() {
+            let n1 = parseInt(document.getElementById("n1").value);
+            let n2 = parseInt(document.getElementById("n2").value);
+            calcular(n1, n2, mostraComoAlert);
+        }
+
+        function calcular(n1, n2, mostraEmParagrafo) {
+            let x = n1 + n2;
+            mostraEmParagrafo(x);
+        }
+
+        function mostraEmParagrafo(valor) {
+            document.getElementsByTagName("p")[0].innerHTML = `Soma: ${valor}`;
+        }
+
+        function mostraComoAlert(valor) {
+            alert(valor);
+        }
+    </script>
+</body>
+</html>
