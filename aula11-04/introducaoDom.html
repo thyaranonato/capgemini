@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Manipulando o DOM</title>
+</head>
+<body>
+    <div>
+
+    </div>
+    <button onclick="criar()">Criar</button>
+    <script>
+         function trocaCssParagrafo() {
+            document.getElementsByTagName("p")[0].setAttribute("style", "color: red");
+        }
+
+        function criar() {
+            let paragrafo = document.createElement("p");
+            paragrafo.innerHTML = "<span>Hello, world</span>";
+            let parent = document.getElementsByTagName("div")[0];
+            paragrafo.style.color = "green";
+            let btn = document.createElement("button");
+
+            let icone = document.createElement("i");
+            icone.setAttribute("class", "material-icons");
+            icone.innerHTML = "access_alarm";
+            btn.innerHTML = "Trocar CSS";
+            
+            btn.appendChild(icone);
+            btn.setAttribute("onclick", "trocaCssParagrafo()");
+            parent.appendChild(paragrafo);
+            parent.appendChild(btn);
+        }
+
+    </script>
+</body>
+</html>
