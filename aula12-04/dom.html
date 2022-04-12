@@ -41,7 +41,8 @@
             listaFruta.innerHTML += "<li>Banana</li>";
             listaFruta.innerHTML += "<li>Mamão</li>";
             listaFruta.setAttribute("class", "verde");
-            parent.appendChild(listaFruta);
+            // parent.appendChild(listaFruta);
+            parent.insertBefore(listaFruta, paragrafo);
 
             let listaTarefas = document.createElement("ul");
             let li = document.createElement("li");
