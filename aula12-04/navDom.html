@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegando DOM</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="ver()">Ver</button>
+    <div>
+        <p>Hello, world!</p>
+        <input type="text" value="Olá mundo">
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>
+                <ol id="listaInterna">
+                    <li>agora complicou</li>
+                </ol>
+            </li>
+        </ol>
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+        </ul>
+    </div>
+    <label for=""></label>
+
+    <script>
+        function ver() {
+            let lista = document.getElementsByTagName("div")[0];
+            document.getElementsByTagName("label")[0].innerHTML = lista.children[2].children[0].innerHTML;
+
+            document.getElementsByTagName("label")[0].innerHTML = lista.children[1].value;
+
+            document.getElementById("listaInterna").children[0].setAttribute("class", "red");
+        }
+    </script>
+</body>
+</html>
