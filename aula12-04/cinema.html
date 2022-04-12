@@ -38,10 +38,11 @@
 
     <script>
         function criar() {
-            let cadeiras = document.getElementById("cadeiras");
-            let divMain = document.getElementById("main");
+            let cadeiras = document.getElementById("cadeiras").value;
+            let divMain = document.getElementById("main")
+            divMain.innerHTML = "";
 
-            for(let index = 0; index < cadeiras.value; index++) {
+            for(let index = 0; index < cadeiras; index++) {
                 let assento = document.createElement("input");
                 assento.setAttribute("type", "button");
                 assento.setAttribute("value", (index + 1));
