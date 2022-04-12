@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .verde {
+            color: green;
+        }
+
+        .gremio {
+            color: blue;
+        }
+
+        .colorado {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!--Criar elementos filhos no evento botão-->
+    </div>
+    <button onclick="criar()">Criar</button>
+    <button onclick="ativarCSS()">Ativar CSS</button>
+    <button onclick="pegarCSS()">Mostrar CSS</button>
+
+    <script>
+        function criar() {
+            let parent = document.getElementsByTagName("div")[0];
+
+            let paragrafo = document.createElement("p");
+            paragrafo.innerHTML = "Hello, world!";
+            paragrafo.className = "gremio";
+            parent.appendChild(paragrafo);
+
+            let listaFruta = document.createElement("ol");
+            listaFruta.innerHTML = "<li>Maça</li>";
+            listaFruta.innerHTML += "<li>Banana</li>";
+            listaFruta.innerHTML += "<li>Mamão</li>";
+            listaFruta.setAttribute("class", "verde");
+            parent.appendChild(listaFruta);
+
+            let listaTarefas = document.createElement("ul");
+            let li = document.createElement("li");
+            li.style.color = "red";
+            li.innerHTML = "Estudar";
+            listaTarefas.appendChild(li);
+            parent.appendChild(listaTarefas);
+
+            let btn = document.createElement("button");
+            btn.innerHTML = "Olá";
+            btn.setAttribute("onclick", "alert('oi')");
+            parent.appendChild(btn);
+        }
+
+        function ativarCSS() {
+            document.getElementsByTagName("p")[0].setAttribute("class", "colorado");
+        }
+
+        function pegarCSS() {
+            let classeCSS = document.getElementsByTagName("p")[0].getAttribute("class");
+            alert(classeCSS);
+        }
+    </script>
+</body>
+</html>
