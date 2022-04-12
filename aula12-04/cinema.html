@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+
+    <style>
+        #main input {
+            margin: 2px;
+        }
+
+        .free {
+            background-color: green;
+        }
+
+        .occupied {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Sala de Cinema</h2>
+    <div>
+        <label for="cadeiras">Informe a quantidade de cadeiras</label>
+        <input type="number" name="cadeiras" id="cadeiras" placeholder="Informe nº de cadeiras">
+        <button onclick="criar(); displayQtyAssentos()">Criar sala</button>
+    </div>
+
+    <hr>
+    <div id="main">
+
+    </div>
+    <hr>
+
+    <p id="texto"></p>
+
+    <script>
+        function criar() {
+            let cadeiras = document.getElementById("cadeiras");
+            let divMain = document.getElementById("main");
+
+            for(let index = 0; index < cadeiras.value; index++) {
+                let assento = document.createElement("input");
+                assento.setAttribute("type", "button");
+                assento.setAttribute("value", (index + 1));
+                assento.setAttribute("class", "free");
+                assento.setAttribute("onclick", "checkAssento(this)");
+
+                divMain.appendChild(assento);
+            }
+        }
+
+        function displayQtyAssentos() {
+            let livres = document.getElementsByClassName("free");
+            let ocupados = document.getElementsByClassName("occupied");
+
+            let displayTexto = `Assentos livres: ${livres.length}`; 
+            displayTexto += "<br>"
+            displayTexto += `Assentos ocupados: ${ocupados.length}`;
+
+            document.getElementById("texto").innerHTML = displayTexto;
+
+        }
+
+        function checkAssento(element) {
+            let classFree = element.getAttribute("class");
+
+            if(classFree === "free") {
+                element.setAttribute("class", "occupied");
+            } else {
+                element.setAttribute("class", "free");
+            }
+            displayQtyAssentos();
+        }
+    </script>
+</body>
+</html>
