@@ -16,7 +16,8 @@
                 <th>Nome</th>
                 <th>Fone</th>
                 <th>Email</th>
-                <th>Ações</th>
+                <th>Editar</th>
+                <th>Deletar</th>
             </tr>
         </thead>
         <tbody>
@@ -37,10 +38,17 @@
                     <td>${lista[i].nome}</td>
                     <td>${lista[i].fone}</td>
                     <td>${lista[i].email}</td>
-                    <td><a href="editar.html?id=${lista[i].id}">editar</a></td></tr>`
+                    <td><a href="editar.html?id=${lista[i].id}">editar</a></td>
+                    <td><button onclick=apagar(${lista[i].id})>Deletar</button></td></tr>`
             }
             document.getElementsByTagName("tbody")[0].innerHTML = trs;
         }
+
+        function apagar(id) {
+            let obj = new Contato();
+            obj.deletar(id);
+        }
+
     </script>
 </body>
 </html>
