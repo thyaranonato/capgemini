@@ -21,6 +21,7 @@
 
         <div class="botoes">
             <button onclick="gravar()" class="salvar">Salvar</button>
+            <button onclick="apagar()" class="apagar">Deletar</button>
             <button class="cancelar">Cancelar</button>
         </div>
     </div>
@@ -50,13 +51,16 @@
             let email  = document.getElementsByTagName("input")[3].value;
 
             let obj = new Contato(id, nome, fone, email);
-            obj.editar(retornar);
-
-         
+            obj.editar(retornar);         
         }
 
         function retornar() {
             window.history.back();
+        }
+
+        function apagar() {
+            let obj = new Contato();
+            obj.deletar(document.getElementsByTagName("input")[0].value);
         }
     </script>
 </body>

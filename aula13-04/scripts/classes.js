@@ -41,4 +41,10 @@ class Contato {
         .then(x => x.text())
         .then(retornar())
     }
+
+    deletar(id) {
+        fetch(`${urlBase}/${id}`, {
+            method: 'DELETE',
+        })
+    }
 }

@@ -1,12 +1,6 @@
 {
   "contatos": [
     {
-      "id": 1,
-      "nome": "Ana Maria",
-      "fone": "4899999999",
-      "email": "thyaranonato@gmail.com"
-    },
-    {
       "id": 2,
       "nome": "João da Silva",
       "fone": "4899999999",
