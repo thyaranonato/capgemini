@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilos/estilos.css">
+    <script src="./scripts/classes.js"></script>
+    <title>Document</title>
+</head>
+<body onload="pegarParametro()">
+
+    <div class="container">
+        <h1>Editar contato</h1>
+        <div class="entrada">
+            <input type="text" value="" disabled>
+            <input type="text" placeholder="Informe nome" name="nome" id="nome" required>
+            <input type="text" placeholder="Informe fone" name="fone" id="fone" required>
+            <input type="email" placeholder="Informe email" name="email" id="email" required>
+        </div>
+
+        <div class="botoes">
+            <button onclick="gravar()" class="salvar">Salvar</button>
+            <button class="cancelar">Cancelar</button>
+        </div>
+    </div>
+
+    <script>
+        function pegarParametro() {
+            let urlParams = new URLSearchParams(window.location.search);
+            let idContato = urlParams.get('id');
+
+            let obj = new Contato();
+            obj.consultarPeloId(idContato, preencheForm);
+        }
+
+        function preencheForm(data) {
+            let obj = JSON.parse(data);
+
+            document.getElementsByTagName("input")[0].value = obj.id;
+            document.getElementsByTagName("input")[1].value = obj.nome;
+            document.getElementsByTagName("input")[2].value = obj.fone;
+            document.getElementsByTagName("input")[3].value = obj.email;
+        }
+    </script>
+</body>
+</html>

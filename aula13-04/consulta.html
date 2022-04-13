@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/classes.js"></script>
+    <link rel="stylesheet" href="./estilos//estilos.css">
+    <title>Consulta</title>
+</head>
+<body onload="load()">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Fone</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Dados carregados dinamicamente-->
+        </tbody>
+    </table>
+    <script>
+        function load() {
+            let obj = new Contato();
+            obj.consultarTodos(displayGeral);
+        }
+
+        function displayGeral(dados) {
+            let lista = JSON.parse(dados);
+            let trs = "";
+            for(let i in lista) {
+                trs += `<tr><td>${lista[i].id}</td>
+                    <td>${lista[i].nome}</td>
+                    <td>${lista[i].fone}</td>
+                    <td>${lista[i].email}</td>
+                    <td><a href="editar.html?id=${lista[i].id}">editar</a></td></tr>`
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = trs;
+        }
+    </script>
+</body>
+</html>

@@ -17,16 +17,16 @@ class Contato {
             }
         }).catch(erro => console.log(erro))
     }
-    // display() {
-    //    console.log(`id: ${this.id} Nome: ${this.nome}`);
-    //}
 
-    //getIdade() {
-    //    let anoAtual = new Date();
-    //    return anoAtual.getFullYear() - this.anoNascimento;
-    //}
+    consultarTodos(display) {
+        fetch(urlBase)
+            .then(x => x.text())
+            .then(data => display(data));
+    }
+
+    consultarPeloId(idContato, display) {
+        fetch(`${urlBase}/${idContato}`)
+            .then(x => x.text())
+            .then(data => display(data));
+    }
 }
-
-//let obj = new Contato(1, 'José', 2000, '123-4567', ///'jose@gmail.com');
-//console.log(obj.display());
-//console.log(obj.getIdade());
