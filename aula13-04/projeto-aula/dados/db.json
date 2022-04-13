@@ -1,0 +1,14 @@
+{
+  "talentos": [
+    {
+      "id": 2,
+      "nome": "Marcos",
+      "fone": "555-0417",
+      "email": "marcos@email.com",
+      "profissao": "Desenvolvedor",
+      "cidade": "Curitiba",
+      "estado": "Paraná",
+      "imagem": "./imagens/menina.jpg"
+    }
+  ]
+}
