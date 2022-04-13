@@ -29,4 +29,16 @@ class Contato {
             .then(x => x.text())
             .then(data => display(data));
     }
+
+    editar() {
+        fetch(`${urlBase}/${this.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(this),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(x => x.text())
+        .then(retornar())
+    }
 }

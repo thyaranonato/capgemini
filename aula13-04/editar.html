@@ -42,6 +42,22 @@
             document.getElementsByTagName("input")[2].value = obj.fone;
             document.getElementsByTagName("input")[3].value = obj.email;
         }
+
+        function gravar() {
+            let id  = document.getElementsByTagName("input")[0].value;
+            let nome  = document.getElementsByTagName("input")[1].value;
+            let fone  = document.getElementsByTagName("input")[2].value;
+            let email  = document.getElementsByTagName("input")[3].value;
+
+            let obj = new Contato(id, nome, fone, email);
+            obj.editar(retornar);
+
+         
+        }
+
+        function retornar() {
+            window.history.back();
+        }
     </script>
 </body>
 </html>
