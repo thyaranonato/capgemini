@@ -1,0 +1,24 @@
+{
+  "clientes": [
+    {
+      "nome": "",
+      "cep": "88040-480",
+      "rua": "Rua Jornalista Tito Carvalho",
+      "complemento": "apto 305",
+      "bairro": "Carvoeira",
+      "cidade": "Florianópolis",
+      "uf": "SC",
+      "id": 1
+    },
+    {
+      "nome": "Thyara No",
+      "cep": "88040-480",
+      "rua": "Rua Jornalista Tito Carvalho",
+      "complemento": "apto 305",
+      "bairro": "Carvoeira",
+      "cidade": "Florianópolis",
+      "uf": "SC",
+      "id": 2
+    }
+  ]
+}
