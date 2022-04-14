@@ -1,0 +1,50 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "jose",
+      "foto": "./imagens/onca.jpg"
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "nome": "feewdw",
+      "foto": "http://127.0.0.1:5500/imagens/onca.jpg",
+      "id": 4
+    },
+    {
+      "nome": "feewdwrrrrrrrrrrrrrrrrr",
+      "foto": "http://127.0.0.1:5500/imagens/onca.jpg",
+      "id": 5
+    },
+    {
+      "nome": "teste sem form",
+      "foto": "http://127.0.0.1:5500/imagens/onca.jpg",
+      "id": 6
+    },
+    {
+      "nome": "Thyara Nonato",
+      "foto": "http://127.0.0.1:5500/imagens/lisa-1.jpg",
+      "id": 7
+    },
+    {
+      "nome": "",
+      "foto": "http://127.0.0.1:5500/cliente.html",
+      "id": 8
+    },
+    {
+      "nome": "",
+      "foto": "http://127.0.0.1:5500/cliente.html",
+      "id": 9
+    },
+    {
+      "nome": "Thyara Nonato",
+      "foto": "http://127.0.0.1:5500/imagens/BartSimpson.jpg",
+      "id": 10
+    }
+  ]
+}
