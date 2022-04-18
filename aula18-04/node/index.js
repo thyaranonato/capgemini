@@ -9,4 +9,5 @@ http.createServer(function(req, res) {
             return res.end();
         }
     );
+    console.log("Servidor rodando!!");
 }).listen(8080);
