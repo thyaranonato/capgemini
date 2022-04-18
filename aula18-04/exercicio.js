@@ -11,12 +11,26 @@ console.log(pessoa1);
 class PessoaFisica extends Pessoa {
     constructor(nome, contato, cpf) {
         super(nome, contato);
-        this.cpf = cpf;
+        this._cpf = cpf;
+    }
+
+    get cpf() {
+        return this._cpf;
+    }
+
+    set cpf(value) {
+        if(value.length === 14) {
+            this._cpf = value;
+        } else { console.log('CPF inválido!')}
     }
 }
 
 let pessoaFisica1 = new PessoaFisica("Maria", "4898989898989", "022011033-00");
 console.log(pessoaFisica1);
+
+let pf1 = new PessoaFisica("Ana", "ana@gmail.com");
+pf1.cpf = "123.456.789-10";
+console.log(pf1);
 
 class PessoaJuridica extends Pessoa {
     constructor(nome, contato, cnpj) {
