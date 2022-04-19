@@ -5,6 +5,7 @@ console.log(boletim);
 var estoque;
 estoque = ["Feijão", 150];
 console.log(estoque);
+// array de tipo tuple
 var participantes = [];
 participantes.push(["José", 26]);
 participantes.push(["Maria", 18]);
