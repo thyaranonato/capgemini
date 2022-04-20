@@ -13,6 +13,11 @@ class PessoaJuridica extends Pessoa {
 
        return (`${p}, Cnpj: ${this.cnpj}`);
     }
+
+    salvar(): boolean {
+        console.log("Salvando pessoa jurídica");
+        return true;
+    }
 }
 
 let pj1 = new PessoaJuridica(3, "Mercado Livre", "mercadolivre@gmail.com", "123456/0001-10");

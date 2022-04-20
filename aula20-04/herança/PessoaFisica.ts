@@ -13,6 +13,11 @@ class PessoaFisica extends Pessoa {
 
        return (`${p}, Cpf: ${this.cpf}`);
     }
+
+    salvar(): boolean {
+        console.log("Salvando pessoa física");
+        return true;
+    }
 }
 
 let pf1 = new PessoaFisica(2, "João", "joao@gmail.com", "123.456.789-10");

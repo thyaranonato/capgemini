@@ -1,4 +1,4 @@
-class Pessoa {
+abstract class Pessoa {
     id: number;
     nome: string;
     contato: string;
@@ -8,11 +8,8 @@ class Pessoa {
         this.nome = nome;
         this.contato = contato;
     }
-
-    salvar():boolean {
-        console.log(`Salvando a pessoa ${this.nome}`);
-        return true;
-    }
+    // métodos abstratos não podem ter implementação 
+    abstract salvar(): boolean;
 
     display():string {
         return (`Id: ${this.id}, Nome: ${this.nome}, Contato: ${this.contato}`);

@@ -6,10 +6,6 @@ class Pessoa {
         this.nome = nome;
         this.contato = contato;
     }
-    salvar() {
-        console.log(`Salvando a pessoa ${this.nome}`);
-        return true;
-    }
     display() {
         return (`Id: ${this.id}, Nome: ${this.nome}, Contato: ${this.contato}`);
     }
