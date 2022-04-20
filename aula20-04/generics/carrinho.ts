@@ -1,17 +1,50 @@
 import Item from "./Item";
-import { Produto } from "./Produto";
 
-let feijao: Produto;
-feijao = new Produto("feijão preto", 5, 50);
+export default class Carrinho {
+    itens: Item[];
+    data: string;
+    cliente: string;
+    finalizado: boolean;
 
-let arroz = new Produto("arroz branco", 6, 25);
+    constructor(data:string, cliente:string) {
+        this.itens = [];
+        this.data = data;
+        this.cliente = cliente;
+        this.finalizado = false;
+    }
 
-let item1: Item = new Item(feijao, feijao.valorUnitario, 2);
+    add(it:Item):void {
+        try {
+            if(this.finalizado) {
+                throw "Carrinho já finalizado!";
+            };
+        } catch(error) {
+            console.log(error);
+        }
 
-let item2 = new Item(arroz, arroz.valorUnitario, 3);
+        this.itens.push(it);
+        console.log("Item adicionado com sucesso!!");
+    }
 
-let carrinho:Item[] = [item1, item2];
+    remove(it:Item):void {
+        let posicao = this.itens.indexOf(it);
 
-carrinho.push(new Item(feijao, feijao.valorUnitario, 3));
+        if(posicao > -1) {
+            // delete this.itens[posicao];
+            this.itens.splice(posicao, 1);
+        }
+        console.log("Item removido com sucesso!!");
+    }
 
-console.log(carrinho);
+    getTotal():number {
+        let total:number = 0;
+        for(let it of this.itens) {
+            total += (it.preco * it.qtd)
+        };
+        return total;
+    }
+
+    finalizar():void {
+        this.finalizado = true;
+    }
+}

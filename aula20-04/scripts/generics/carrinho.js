@@ -1,15 +1,43 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Item_1 = __importDefault(require("./Item"));
-const Produto_1 = require("./Produto");
-let feijao;
-feijao = new Produto_1.Produto("feijão preto", 5, 50);
-let arroz = new Produto_1.Produto("arroz branco", 6, 25);
-let item1 = new Item_1.default(feijao, feijao.valorUnitario, 2);
-let item2 = new Item_1.default(arroz, arroz.valorUnitario, 3);
-let carrinho = [item1, item2];
-carrinho.push(new Item_1.default(feijao, feijao.valorUnitario, 3));
-console.log(carrinho);
+class Carrinho {
+    constructor(data, cliente) {
+        this.itens = [];
+        this.data = data;
+        this.cliente = cliente;
+        this.finalizado = false;
+    }
+    add(it) {
+        try {
+            if (this.finalizado) {
+                throw "Carrinho já finalizado!";
+            }
+            ;
+        }
+        catch (error) {
+            console.log(error);
+        }
+        this.itens.push(it);
+        console.log("Item adicionado com sucesso!!");
+    }
+    remove(it) {
+        let posicao = this.itens.indexOf(it);
+        if (posicao > -1) {
+            // delete this.itens[posicao];
+            this.itens.splice(posicao, 1);
+        }
+        console.log("Item removido com sucesso!!");
+    }
+    getTotal() {
+        let total = 0;
+        for (let it of this.itens) {
+            total += (it.preco * it.qtd);
+        }
+        ;
+        return total;
+    }
+    finalizar() {
+        this.finalizado = true;
+    }
+}
+exports.default = Carrinho;

@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Carrinho_1 = __importDefault(require("./Carrinho"));
+const Item_1 = __importDefault(require("./Item"));
+const Produto_1 = require("./Produto");
+let feijao;
+feijao = new Produto_1.Produto("feijão preto", 5, 50);
+let arroz = new Produto_1.Produto("arroz branco", 6, 25);
+let item1 = new Item_1.default(feijao, feijao.valorUnitario, 2);
+let item2 = new Item_1.default(arroz, arroz.valorUnitario, 3);
+// let carrinho:Item[] = [item1, item2];
+let c1;
+c1 = new Carrinho_1.default("20/04/2022", "José da Silva");
+c1.add(item1);
+c1.add(item2);
+console.log(c1);
+c1.remove(item1);
+console.log(c1);
+console.log(c1.itens[0].produto.descricao);
