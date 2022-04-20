@@ -1,12 +1,13 @@
 import { IDaoGenerica } from "./IGenerica";
+import { Produto } from "./Produto";
 
-class Item implements IDaoGenerica<Item> {
-    descricao:string;
+export default class Item implements IDaoGenerica<Item> {
+    produto: Produto;
     preco: number;
     qtd:number;
 
-    constructor(descricao:string, preco:number, qtd:number) {
-        this.descricao = descricao;
+    constructor(produto:Produto, preco:number, qtd:number) {
+        this.produto = produto;
         this.preco  = preco;
         this.qtd = qtd;
     }

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Produto = void 0;
 class Produto {
     constructor(descricao, valorUnitario, estoque) {
         this.descricao = descricao;
@@ -22,3 +23,4 @@ class Produto {
         throw new Error("Method not implemented.");
     }
 }
+exports.Produto = Produto;
