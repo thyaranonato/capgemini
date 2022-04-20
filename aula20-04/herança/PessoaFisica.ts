@@ -1,6 +1,6 @@
 import Pessoa from "./Pessoa";
 
-class PessoaFisica extends Pessoa {
+abstract class PessoaFisica extends Pessoa {
     cpf: string;
 
     constructor(id:number, nome:string, contato:string, cpf:string) {
@@ -14,11 +14,13 @@ class PessoaFisica extends Pessoa {
        return (`${p}, Cpf: ${this.cpf}`);
     }
 
-    salvar(): boolean {
-        console.log("Salvando pessoa física");
-        return true;
-    }
+    // métodos abstratos não podem ter implementação 
+    abstract salvar(): boolean;
+    abstract alterar(id: number): boolean;   
+    abstract excluir(id: number): void;
+    abstract consultar(): string[];      
+    abstract consultarPorId(id: number): string
 }
 
-let pf1 = new PessoaFisica(2, "João", "joao@gmail.com", "123.456.789-10");
-console.log(pf1.display());
+/**let pf1 = new PessoaFisica(2, "João", "joao@gmail.com", "123.456.789-10");
+console.log(pf1.display());**/
