@@ -58,7 +58,7 @@
             document.getElementsByTagName("tbody")[0].innerHTML = trs;
         }
 
-        function efetivarGravacaoItem(idProduto, callback) {
+        function efetivarGravacaoItem(idProduto) {
             let x = new ModelProduto();
             x.consultarPorId(idProduto, inserirItem)
         }
@@ -88,7 +88,7 @@
             }
             carrinho.finalizado = true;
             carrinho.cliente = nomeCliente.value;
-            
+
             let x = new ModelCarrinho();
             x.salvar(carrinho);
         }
