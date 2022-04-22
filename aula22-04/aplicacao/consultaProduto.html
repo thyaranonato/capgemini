@@ -8,12 +8,36 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" name="" id="">
+
+    <p id="load"></p>
     <button onclick="load()">Carregar</button>
+    <button onclick="create()">Criar</button>
 
     <script>
         function load() {
             let x = new ModelProduto();
-            x.consultarTodos();
+            x.consultarTodos(pegarTodos);
+           //console.log(x.consultarPorId(1, pegaProduto));
+        }
+
+        function pegarTodos(dados) {
+            console.log(dados);
+        }
+
+        function pegaProduto(dados) {
+            console.log(dados);
+        }
+
+        function create() {
+            let x = new ModelProduto();
+
+            let obj = {
+                descricao: "batata doce",
+                preco: 5.00,
+                estoque: 92,
+            }
+            x.salvar(obj);
         }
     </script>
 </body>

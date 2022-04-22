@@ -21,9 +21,13 @@ class Produto {
     
 }
 
-class ModelProduto implements IDao<Produto> {
+class ModelProduto {
     salvar(obj: Produto): void {
-        throw new Error("Method not implemented.");
+       fetch("http://localhost:3000/produtos", {
+           method: "POST",
+           body: JSON.stringify(obj),
+           headers: {"Content-Type": "application/json"}
+       })
     }
     alterar(obj: Produto): void {
         throw new Error("Method not implemented.");
@@ -31,16 +35,15 @@ class ModelProduto implements IDao<Produto> {
     excluir(id: number): void {
         throw new Error("Method not implemented.");
     }
-    consultarTodos(): Produto[] {
+    consultarTodos(callback:(lista:Produto[]) => {}): void {
         fetch("http://localhost:3000/produtos")
-        .then(x => x.text())
-        .then(data => console.log(data));
-        let x:Produto[] = [];
-        return x;
+        .then(x => x.json())
+        .then(data => callback(data));
     }
-    consultarPorId(id: number): Produto {
-        throw new Error("Method not implemented.");
+    consultarPorId(id: number, callback:(s:Produto)=>{}) {
+        fetch(`http://localhost:3000/produtos/${id}`)
+        .then(x => x.json())
+        .then(data => callback(data))
     }
-    
 }
 
