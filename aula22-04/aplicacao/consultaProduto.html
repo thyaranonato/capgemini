@@ -8,35 +8,47 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" name="" id="">
-
-    <p id="load"></p>
     <button onclick="load()">Carregar</button>
-    <button onclick="create()">Criar</button>
+    <button onclick="inserir()">gravar</button>
+    <button onclick="efetivarGravacaoItem()">gravar item</button>
 
     <script>
         function load() {
             let x = new ModelProduto();
-            x.consultarTodos(pegarTodos);
-           //console.log(x.consultarPorId(1, pegaProduto));
+            //  x.consultarTodos(pegarTodos)
+            x.consultarPorId(1, inserirItem)
+        }
+
+        function inserirItem(dados) {
+            let it = new Item(dados, dados.preco, 10);
+            //chama gravar item
         }
 
         function pegarTodos(dados) {
-            console.log(dados);
+            console.log(dados)
         }
 
         function pegaProduto(dados) {
-            console.log(dados);
+            console.log(dados)
+                // callback(dados)
         }
 
-        function create() {
+        function efetivarGravacaoItem() {
             let x = new ModelProduto();
+            //  x.consultarTodos(pegarTodos)
+            x.consultarPorId(1, inserirItem)
 
-            let obj = {
-                descricao: "batata doce",
-                preco: 5.00,
-                estoque: 92,
-            }
+        }
+
+        function inserir() {
+            /*controler*/
+            var obj = {
+                    descricao: 'farinha',
+                    preco: 10,
+                    estoque: 150
+                }
+                /*Model -Acessa os dados onde estão armazenados ou envia da view para o db*/
+            let x = new ModelProduto();
             x.salvar(obj);
         }
     </script>

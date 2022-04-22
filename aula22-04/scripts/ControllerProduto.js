@@ -9,10 +9,12 @@ class Produto {
 }
 class ModelProduto {
     salvar(obj) {
-        fetch("http://localhost:3000/produtos", {
-            method: "POST",
+        fetch('http://localhost:3000/produtos', {
+            method: 'POST',
             body: JSON.stringify(obj),
-            headers: { "Content-Type": "application/json" }
+            headers: {
+                'Content-type': 'Application/json'
+            }
         });
     }
     alterar(obj) {
@@ -22,13 +24,46 @@ class ModelProduto {
         throw new Error("Method not implemented.");
     }
     consultarTodos(callback) {
-        fetch("http://localhost:3000/produtos")
+        fetch('http://localhost:3000/produtos')
             .then(x => x.json())
             .then(data => callback(data));
     }
+    /** 1)callback  2)async/await => promise */
     consultarPorId(id, callback) {
         fetch(`http://localhost:3000/produtos/${id}`)
             .then(x => x.json())
             .then(data => callback(data));
+    }
+}
+/**Controller item */
+class Item {
+    constructor(produto, precoItem, qtde) {
+        this.produto = produto;
+        this.precoItem = precoItem;
+        this.qtde = qtde;
+    }
+}
+/**Modelo Item */
+class ModelItem {
+    alterar(obj) {
+        throw new Error("Method not implemented.");
+    }
+    excluir(id) {
+        throw new Error("Method not implemented.");
+    }
+    consultarTodos(callback) {
+        throw new Error("Method not implemented.");
+    }
+    consultarPorId(id, callback) {
+        throw new Error("Method not implemented.");
+    }
+    salvar(it) {
+        fetch("http://localhost:3000/itens", {
+            method: 'POST',
+            body: JSON.stringify(it),
+            headers: {
+                'Content-type': 'Application/json'
+            }
+        });
     }
 }

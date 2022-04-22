@@ -19,10 +19,11 @@
       "id": 3
     },
     {
-      "descricao": "batata doce",
-      "preco": 5,
-      "estoque": 92,
+      "descricao": "farinha",
+      "preco": 10,
+      "estoque": 150,
       "id": 4
     }
-  ]
+  ],
+  "itens": []
 }
