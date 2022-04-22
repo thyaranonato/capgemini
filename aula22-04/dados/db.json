@@ -1,0 +1,16 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "descricao": "feijão preto",
+            "preco": 7.89,
+            "estoque": 10
+        },
+        {
+            "id": 2,
+            "descricao": "arroz",
+            "preco": 15.00,
+            "estoque": 10
+        }
+    ]
+}
