@@ -11,7 +11,6 @@ class Produto {
     descricao: string;
     preco: number;
     estoque: number;
-
     constructor(id: number, descricao: string, preco: number, estoque: number) {
         this.id = id
         this.descricao = descricao
@@ -19,6 +18,7 @@ class Produto {
         this.estoque = estoque
     }
 }
+
 class ModelProduto {
     salvar(obj: Produto): void {
         fetch('http://localhost:3000/produtos', {
@@ -42,7 +42,7 @@ class ModelProduto {
             .then(data => callback(data))
     }
 
-    /** 1)callback  2)async/await => promise */
+    /** 1)callback  2)async/await => promisse */
     consultarPorId(id: number, callback: (s: Produto) => {}) {
         fetch(`http://localhost:3000/produtos/${id}`)
             .then(x => x.json())
@@ -52,10 +52,9 @@ class ModelProduto {
 
 /**Controller item */
 class Item {
-    produto: Produto;
-    precoItem: number;
-    qtde: number;
-    
+    produto: Produto
+    precoItem: number
+    qtde: number
     constructor(produto: Produto, precoItem: number, qtde: number) {
         this.produto = produto
         this.precoItem = precoItem
@@ -88,4 +87,48 @@ class ModelItem implements IDao<Item>{
             }
         )
     }
+}
+
+// Carrinho de compras
+class Carrinho {
+    itens: Item[];
+    data: string;
+    cliente: string;
+    finalizado: boolean;
+
+    constructor(data: string, cliente: string) {
+        this.itens = [];
+        this.data = data;
+        this.cliente = cliente;
+        this.finalizado = false;
+    }
+
+    add(item: Item) {
+        this.itens.push(item);
+    }
+}
+
+class ModelCarrinho implements IDao<Carrinho> {
+    salvar(obj: Carrinho): void {
+        fetch("http://localhost:3000/carrinho", {
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers: {
+                'Content-type': 'Application/json'
+            }
+        })
+    }
+    alterar(obj: Carrinho): void {
+        throw new Error("Method not implemented.");
+    }
+    excluir(id: number): void {
+        throw new Error("Method not implemented.");
+    }
+    consultarTodos(callback: (x: Carrinho[]) => {}): void {
+        throw new Error("Method not implemented.");
+    }
+    consultarPorId(id: number, callback: (x: Carrinho) => {}): void {
+        throw new Error("Method not implemented.");
+    }
+
 }

@@ -25,5 +25,34 @@
       "id": 4
     }
   ],
-  "itens": []
+  "carrinho": [
+    {
+      "itens": [
+        {
+          "produto": {
+            "descricao": "batata doce",
+            "preco": 5,
+            "estoque": 92,
+            "id": 3
+          },
+          "precoItem": 5,
+          "qtde": 1
+        },
+        {
+          "produto": {
+            "descricao": "farinha",
+            "preco": 10,
+            "estoque": 150,
+            "id": 4
+          },
+          "precoItem": 10,
+          "qtde": 1
+        }
+      ],
+      "data": "22/04/2022",
+      "cliente": "Thyara",
+      "finalizado": true,
+      "id": 1
+    }
+  ]
 }
