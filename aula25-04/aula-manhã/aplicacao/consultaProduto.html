@@ -48,6 +48,8 @@
                     <!--Dados preenchidos dinamicamente-->
                 </tbody>
             </table>
+           <hr>
+           <label for="" id="totalCarrinho"></label>
         </div>
     </div>
 
@@ -116,6 +118,7 @@
     
         function showCarrinho(dados) {
             let trs = "";
+            let soma = 0;
             for (let i = 0; i < dados.itens.length; i++) {
                 trs += `
                     <tr>
@@ -124,8 +127,10 @@
                         <td>${dados.itens[i].qtde}</td>
                         <td>${dados.itens[i].qtde * dados.itens[i].precoItem}</td>
                     </tr>`
+                    soma += (dados.itens[i].qtde) * dados.itens[i].precoItem;
             }
             document.getElementById("itensCarrinho").innerHTML = trs;
+            document.getElementById("totalCarrinho").innerHTML = `Total R$: <span>${soma}</span>`;
         }
     </script>
 </body>
