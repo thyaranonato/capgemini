@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app-teste';
+  title = 'Meu primeiro componente em Angular';
+  nome: string = "Thyara";
+
+  cliente = {
+    id: 10,
+    nome: "José da Silva"
+  }
+
+  trocar() {
+    this.nome = "Ana";
+  }
 }
+
