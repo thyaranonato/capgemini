@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../scripts/ControllerProduto.js"></script>
+    <link rel="stylesheet" href="./estilos/estilos.css">
+</head>
+
+<body onload="load()">
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--Preenchido pela callback-->
+            </tbody>
+        </table>
+
+        <input type="text" id="nome" placeholder="Informe nome">
+        <button onclick="finalizarCarrinho()">Finalizar Carrinho</button>
+    </div>
+
+    <script>
+        let carrinho = new Carrinho('22/04/2022', 'Navegante');
+
+        function load() {
+            let x = new ModelProduto();
+            x.consultarTodos(displayTabela);
+        }
+
+        function inserirItem(dados) {
+            let it = new Item(dados, dados.preco, 1);
+            addItemCarrinho(it);
+        }
+
+        function displayTabela(dados) {
+            let trs = "";
+            for(let index in dados) {
+                trs += `<tr>
+                            <td>${dados[index].id}</td>    
+                            <td>${dados[index].descricao}</td>  
+                            <td>${dados[index].preco}</td>  
+                            <td>${dados[index].estoque}</td> 
+                            <td><button onclick="efetivarGravacaoItem(${dados[index].id})">+</button></td>   
+                        </tr>`;
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = trs;
+        }
+
+        function efetivarGravacaoItem(idProduto) {
+            let x = new ModelProduto();
+            x.consultarPorId(idProduto, inserirItem)
+        }
+
+        function inserir() {
+            /*controler*/
+            var obj = {
+                    descricao: 'farinha',
+                    preco: 10,
+                    estoque: 150
+                }
+                /*Model -Acessa os dados onde estão armazenados ou envia da view para o db*/
+            let x = new ModelProduto();
+            x.salvar(obj);
+        }
+    
+        function addItemCarrinho(item) {
+            carrinho.add(item);
+        }
+
+        function finalizarCarrinho() {
+            let nomeCliente = document.getElementById("nome");
+            if(nomeCliente.value === "") {
+                alert("Informe nome do cliente");
+                nomeCliente.focus();
+                return;
+            }
+            carrinho.finalizado = true;
+            carrinho.cliente = nomeCliente.value;
+
+            let x = new ModelCarrinho();
+            x.salvar(carrinho);
+        }
+    </script>
+</body>
+
+</html>
