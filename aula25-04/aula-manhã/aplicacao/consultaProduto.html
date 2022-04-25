@@ -98,8 +98,20 @@
         }
     
         function addItemCarrinho(item) {
-            carrinho.add(item);
+            if(!itemExiste(item)) {
+                carrinho.add(item);
+            }
             showCarrinho(carrinho);
+        }
+
+        function itemExiste(item) {
+            for (let i = 0; i < carrinho.itens.length; i++) {
+                if(item.produto.id === carrinho.itens[i].produto.id) {
+                    carrinho.itens[i].qtde += 1;
+                    return true;
+                };
+            }
+            return false;
         }
 
         function finalizarCarrinho() {
@@ -125,12 +137,12 @@
                         <td>${dados.itens[i].produto.descricao}</td>
                         <td>${dados.itens[i].precoItem}</td>
                         <td>${dados.itens[i].qtde}</td>
-                        <td>${dados.itens[i].qtde * dados.itens[i].precoItem}</td>
+                        <td>${(dados.itens[i].qtde * dados.itens[i].precoItem).toFixed(2)}</td>
                     </tr>`
-                    soma += (dados.itens[i].qtde) * dados.itens[i].precoItem;
+                    soma += (dados.itens[i].qtde * dados.itens[i].precoItem);
             }
             document.getElementById("itensCarrinho").innerHTML = trs;
-            document.getElementById("totalCarrinho").innerHTML = `Total R$: <span>${soma}</span>`;
+            document.getElementById("totalCarrinho").innerHTML = `Total R$: <span>${soma.toFixed(2)}</span>`;
         }
     </script>
 </body>

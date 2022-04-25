@@ -24,3 +24,8 @@ tbody tr:hover {
     background-color: aquamarine;
     color: red;
 }
+
+label span {
+    color: red;
+    font-weight: 700;
+}
