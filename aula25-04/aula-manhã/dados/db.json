@@ -53,6 +53,34 @@
       "cliente": "Thyara",
       "finalizado": true,
       "id": 1
+    },
+    {
+      "itens": [
+        {
+          "produto": {
+            "id": 1,
+            "descricao": "feijão preto",
+            "preco": 7.89,
+            "estoque": 10
+          },
+          "precoItem": 7.89,
+          "qtde": 2
+        },
+        {
+          "produto": {
+            "descricao": "batata doce",
+            "preco": 5,
+            "estoque": 92,
+            "id": 3
+          },
+          "precoItem": 5,
+          "qtde": 1
+        }
+      ],
+      "data": "22/04/2022",
+      "cliente": "Thyara Nonato",
+      "finalizado": true,
+      "id": 2
     }
   ]
 }
