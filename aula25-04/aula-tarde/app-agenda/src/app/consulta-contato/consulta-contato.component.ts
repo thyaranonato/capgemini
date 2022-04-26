@@ -6,26 +6,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./consulta-contato.component.css']
 })
 export class ConsultaContatoComponent {
-
+  contatos = [{
+    id: 1,
+    nome: "Ana",
+    email: "ana@gmail.com",
+    fone: "123456789"
+  },
+  {
+    id: 2,
+    nome: "Pedro",
+    email: "pedro@gmail.com",
+    fone: "123456789"
+  },
+  {
+    id: 3,
+    nome: "João",
+    email: "joão@gmail.com",
+    fone: "123456789"
+  },
+  {
+    id: 4,
+    nome: "Paula",
+    email: "paula@gmail.com",
+    fone: "123456789"
+  }
+]
   constructor() { }
-
-  load() {
-    fetch("http://localhost:3000/contatos")
-        .then(x => x.text())
-        .then(dados => this.display(dados));
-  }
-
-  display(lista: string) {
-    let dados = JSON.parse(lista);
-    let trs = "";
-    for(let obj in dados) {
-        trs += "<tr>"
-        trs += "<td>" + dados[obj].nome + "</td>"
-        trs += "<td>" + dados[obj].fone + "</td>"
-        trs += "<td>" + dados[obj].email + "</td>"
-        trs += "</tr>"
-    }
-    document.getElementsByTagName("tbody")[0].innerHTML = trs;
-  }
 
 }

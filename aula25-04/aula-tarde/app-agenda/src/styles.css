@@ -1,3 +1,12 @@
+.container {
+    width: 600px;
+    margin: auto;
+}
+
+.container h1 {
+    text-align: center;
+}
+
 button {
     width: 150px;
     margin-right: 10px;
