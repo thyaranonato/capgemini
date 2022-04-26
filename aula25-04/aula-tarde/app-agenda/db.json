@@ -36,6 +36,13 @@
       "fone": "123456789",
       "twiter": "@joana",
       "id": 6
+    },
+    {
+      "nome": "Ana Maria",
+      "email": "maria@gmail.com",
+      "fone": "7364555",
+      "twiter": "@joana",
+      "id": 7
     }
   ]
 }
