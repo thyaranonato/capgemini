@@ -1,1 +1,93 @@
-<p>cadastro works!</p>
+<h1 class="fs-1 fw-bolder text-center mb-3">Cadastro de talentos</h1>
+
+<h2 class="fs-3 fst-italic text-center mb-3">Preencha o formulário abaixo para se cadastrar no banco de
+    talentos
+</h2>
+
+<form class="was-validated" novalidate #f="ngForm" (ngSubmit)="createTalent(f.value)">
+    <div class="container mb-3">
+        <label class="form-label fs-4 fst-italic" for="nome">Nome:</label>
+        <input type="text" placeholder="Informe nome" ngModel name="nome" id="nome" class="form-control" required>
+        <div class="invalid-feedback">
+            Informe o seu nome.
+        </div>
+
+        <label class="form-label fs-4 fst-italic" for="fone">Fone:</label>
+        <input type="text" placeholder="Informe fone" ngModel name="fone" id="fone" class="form-control" required>
+        <div class="invalid-feedback">
+            Informe o seu telefone.
+        </div>
+
+        <label class="form-label fs-4 fst-italic" for="email">Email:</label>
+        <input type="text" placeholder="Informe email" ngModel name="email" id="email" class="form-control"
+            required>
+        <div class="invalid-feedback">
+            Informe o seu email.
+        </div>
+
+        <label class="form-label fs-4 fst-italic" for="profissao">Profissão:</label>
+        <input type="text" placeholder="Informe profissão" ngModel name="profissao" id="profissao"
+            class="form-control" required>
+        <div class="invalid-feedback">
+            Informe a sua profissão.
+        </div>
+
+        <label class="form-label fs-4 fst-italic" for="cidade">Cidade:</label>
+        <input type="text" placeholder="Informe cidade" ngModel name="cidade" id="cidade" class="form-control"
+            required>
+        <div class="invalid-feedback">
+            Informe a sua cidade.
+        </div>
+
+        <label class="form-label fs-4 fst-italic" for="estado">Estado:</label>
+        <select class="form-select" id="estado" ngModel required>
+            <option value="" selected>Selecione o seu estado:</option>
+            <option value="AC">Acre - AC</option>
+            <option value="AL">Alagoas - AL</option>
+            <option value="AP">Amapá - AP</option>
+            <option value="AM">Amazonas - AM</option>
+            <option value="BA">Bahia - BA</option>
+            <option value="CE">Ceará - CE</option>
+            <option value="DF">Distrito Federal - DF</option>
+            <option value="ES">Espírito Santo - ES</option>
+            <option value="GO">Goiás - GO</option>
+            <option value="MA">Maranhão - MA</option>
+            <option value="MT">Mato Grosso - MT</option>
+            <option value="MS">Mato Grosso do Sul - MS</option>
+            <option value="MG">Minas Gerais - MG</option>
+            <option value="PA">Pará - PA</option>
+            <option value="PB">Paraíba - PB</option>
+            <option value="PR">Paraná - PR</option>
+            <option value="PE">Pernambuco - PE</option>
+            <option value="PI">Piauí - PI</option>
+            <option value="RJ">Rio de Janeiro - RJ</option>
+            <option value="RN">Rio Grande do Norte - RN</option>
+            <option value="RS">Rio Grande do Sul - RS</option>
+            <option value="RO">Rondônia - RO</option>
+            <option value="RR">Roraima - RR</option>
+            <option value="SC">Santa Catarina - SC</option>
+            <option value="SP">São Paulo - SP</option>
+            <option value="SE">Sergipe - SE</option>
+            <option value="TO">Tocantins - TO</option>
+        </select>
+        <div class="invalid-feedback">
+            Selecione o seu estado.
+        </div>
+    </div>
+
+    <div class="container mb-3">
+        <fieldset>
+            <legend class="fs-4 fst-italic">Foto:</legend>
+            <input type="file" id="imagem" ngModel placeholder="Envie uma foto sua" class="form-control" required />
+            <div class="invalid-feedback">
+                É necessário fazer o upload de uma foto sua.
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="d-grid gap-2 col-2 mx-auto">
+        <button type="submit" class="btn">Salvar</button>
+        <button type="reset" class="btn">Cancelar</button>
+    </div>
+</form>
+<label>{{ msg }}</label>
