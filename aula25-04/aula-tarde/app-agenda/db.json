@@ -1,0 +1,41 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "nome": "Ana",
+      "email": "ana@gmail.com",
+      "fone": "123456789"
+    },
+    {
+      "id": 2,
+      "nome": "Pedro",
+      "email": "pedro@gmail.com",
+      "fone": "123456789"
+    },
+    {
+      "id": 3,
+      "nome": "João",
+      "email": "joão@gmail.com",
+      "fone": "123456789"
+    },
+    {
+      "id": 4,
+      "nome": "Paula",
+      "email": "paula@gmail.com",
+      "fone": "123456789"
+    },
+    {
+      "nome": "Thyara Nonato",
+      "email": "thyaranonato@outlook.com",
+      "fone": "48999999999",
+      "id": 5
+    },
+    {
+      "nome": "joana",
+      "email": "joana@gmail.com",
+      "fone": "123456789",
+      "twiter": "@joana",
+      "id": 6
+    }
+  ]
+}

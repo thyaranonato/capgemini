@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceContatoService } from '../service-contato.service';
 
 @Component({
   selector: 'app-cadastro-contato',
@@ -6,38 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./cadastro-contato.component.css']
 })
 export class CadastroContatoComponent {
-
-  contatos = [{
-    id: 1,
-    nome: "Ana",
-    email: "ana@gmail.com",
-    fone: "123456789"
-  },
-  {
-    id: 2,
-    nome: "Pedro",
-    email: "pedro@gmail.com",
-    fone: "123456789"
-  },
-  {
-    id: 3,
-    nome: "João",
-    email: "joão@gmail.com",
-    fone: "123456789"
-  },
-  {
-    id: 4,
-    nome: "Paula",
-    email: "paula@gmail.com",
-    fone: "123456789"
-  }
-]
-
-  constructor() { }
+  msg: string = "";
+  constructor(private serviceContato: ServiceContatoService) { }
 
   saveContato(data: any) {
-    data.id = this.contatos.length +1;
-    this.contatos.push(data);
+    // data.id = this.contatos.length +1;
+    // this.contatos.push(data);
+    this.serviceContato.save(data).subscribe(x => this.msg = "Contato salvo com sucesso!");
   }
 
 }
