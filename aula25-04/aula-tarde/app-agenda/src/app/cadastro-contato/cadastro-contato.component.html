@@ -1,10 +1,36 @@
 <div class="container">
     <h1>Cadastro de Contatos</h1>
-    <input type="text" placeholder="Informe nome">
-    <input type="email" placeholder="Informe email">
-    <input type="text" placeholder="Informe telefone">
-    <div class="botoes">
-        <button class="btSalvar">Salvar</button>
-        <button class="btCancelar">Cancelar</button>
-    </div>
+    <form #f="ngForm" (ngSubmit)="saveContato(f.value)">
+        <input ngModel name="nome" type="text" placeholder="Informe nome" required="">
+        <input ngModel name="email" type="email" placeholder="Informe email" required="">
+        <input ngModel name="fone" type="text" placeholder="Informe telefone" required="">
+        <div class="botoes">
+            <button class="btSalvar">Salvar</button>
+            <button class="btCancelar">Cancelar</button>
+        </div>
+    </form>
 </div>
+
+<div class="container">
+    <h1>Consulta de contatos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contato of contatos">
+                <td>{{ contato.id }}</td>
+                <td>{{ contato.nome }}</td>
+                <td>{{ contato.email }}</td>
+                <td>{{ contato.fone }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

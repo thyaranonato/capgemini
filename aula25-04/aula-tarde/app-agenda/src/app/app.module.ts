@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CadastroContatoComponent } from './cadastro-contato/cadastro-contato.component';
 import { ConsultaContatoComponent } from './consulta-contato/consulta-contato.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { ConsultaContatoComponent } from './consulta-contato/consulta-contato.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
