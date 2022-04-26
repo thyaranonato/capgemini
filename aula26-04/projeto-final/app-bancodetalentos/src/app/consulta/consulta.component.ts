@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CadastroService } from '../cadastro.service';
 
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.component.html',
   styleUrls: ['./consulta.component.css']
 })
-export class ConsultaComponent implements OnInit {
 
-  constructor() { }
+export class ConsultaComponent {
+  talentos: any;
 
-  ngOnInit(): void {
+  constructor(private serviceCadastro: CadastroService) {
+    this.serviceCadastro.getAll().subscribe(response => this.talentos = response);
   }
-
 }
