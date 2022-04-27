@@ -32,8 +32,13 @@ export class LoginComponent {
         this.usuarioConectado.nome = data[i].nome,
         this.usuarioConectado.email = data[i].email,
         this.usuarioConectado.senha = data[i].senha,
-        this.usuarioConectado.perfil = data[i].perfil
+        this.usuarioConectado.perfil = data[i].perfil,
+        this.gravarDadosLocalStorage();
       }
     }
+  }
+  //simular authguard
+  gravarDadosLocalStorage() {
+    localStorage.setItem("userConectado", JSON.stringify(this.usuarioConectado));
   }
 }
