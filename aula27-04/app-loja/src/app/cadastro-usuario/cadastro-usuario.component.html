@@ -1,1 +1,10 @@
-<p>cadastro-usuario works!</p>
+<div class="container">
+    <h1 class="text-center">Cadastro de Usuários</h1>
+    <form #f="ngForm" (ngSubmit)="(f.value)">
+        <input ngModel class="form-control" type="text" name="nome" placeholder="Informe nome">
+        <input ngModel class="form-control" type="text" name="preco"  placeholder="Informe preço">
+        <input ngModel class="form-control mb-3" type="text" name="estoque" placeholder="Informe estoque">
+        <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+        <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+    </form>
+</div>
