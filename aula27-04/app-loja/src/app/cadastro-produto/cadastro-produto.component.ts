@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ProdutoService } from '../produto.service';
 
 @Component({
   selector: 'app-cadastro-produto',
   templateUrl: './cadastro-produto.component.html',
   styleUrls: ['./cadastro-produto.component.css']
 })
-export class CadastroProdutoComponent implements OnInit {
+export class CadastroProdutoComponent {
 
-  constructor() { }
+  constructor(private serviceProduto: ProdutoService) { }
+  msg: string = "";
 
-  ngOnInit(): void {
+  gravar(data: any) {
+    this.serviceProduto.gravar(data).subscribe(response => this.msg = "Produto cadastrado com sucesso!");
   }
 
+  limparMsg() {
+    this.msg = "";
+  }
 }

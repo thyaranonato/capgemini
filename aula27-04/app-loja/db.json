@@ -1,0 +1,18 @@
+{
+  "produtos": [
+    {
+      "descricao": "Arroz",
+      "preco": "15",
+      "estoque": "50",
+      "id": 1
+    },
+    {
+      "descricao": "Feijão",
+      "preco": "10",
+      "estoque": "100",
+      "id": 2
+    }
+  ],
+  "usuarios": [],
+  "carrinho": []
+}
