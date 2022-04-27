@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app-loja';
 
-  userLogado: any;
+  userLogado: any = {};
 
   constructor() {
     this.pegarPerfilUsuarioConectado();
@@ -18,7 +18,7 @@ export class AppComponent {
     let user = localStorage.getItem("userConectado");
     if(user !== null) {
       user = JSON.parse(user);
+      this.userLogado = user; 
     }
-    this.userLogado = user; 
   }
 }

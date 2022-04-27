@@ -8,8 +8,11 @@ import { ProdutoService } from '../produto.service';
 })
 export class CadastroProdutoComponent {
 
-  constructor(private serviceProduto: ProdutoService) { }
+  constructor(private serviceProduto: ProdutoService) { 
+    this.serviceProduto.getAll().subscribe(response => this.produtos = response);
+  }
   msg: string = "";
+  produtos: any;
 
   gravar(data: any) {
     this.serviceProduto.gravar(data).subscribe(response => this.msg = "Produto cadastrado com sucesso!");

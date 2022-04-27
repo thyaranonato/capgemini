@@ -26,6 +26,7 @@ export class LoginComponent {
   }
 
   verificarLogin(email: string, senha: string, data: any) {
+    localStorage.removeItem("userConectado");
     for(let i = 0; i < data.length; i++) {
       if(email === data[i].email && senha === data[i].senha) {
         this.usuarioConectado.id = data[i].id,
@@ -36,6 +37,7 @@ export class LoginComponent {
         this.gravarDadosLocalStorage();
       }
     }
+    window.location.reload();
   }
   //simular authguard
   gravarDadosLocalStorage() {

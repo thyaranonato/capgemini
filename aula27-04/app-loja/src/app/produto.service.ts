@@ -12,4 +12,14 @@ export class ProdutoService {
     let url = "http://localhost:3000/produtos";
     return this.http.post(url, data);
   }
+
+  getAll() {
+    let url = "http://localhost:3000/produtos";
+    return this.http.get(url);
+  }
+
+  getOne(idProduto: number) {
+    let url = "http://localhost:3000/produtos";
+    return this.http.get(`http://localhost:3000/produtos/${idProduto}`);
+  }
 }
