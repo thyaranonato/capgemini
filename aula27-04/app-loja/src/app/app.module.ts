@@ -8,6 +8,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component';
     CarrinhoComponent,
     PagamentoComponent,
     CadastroUsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
