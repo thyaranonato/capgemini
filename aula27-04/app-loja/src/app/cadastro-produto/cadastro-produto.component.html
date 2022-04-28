@@ -2,23 +2,22 @@
     <h1 class="text-center">Cadastro de Produtos</h1>
     <form #f="ngForm" (ngSubmit)="gravar(f.value)">
         <input required class="form-control" type="text" #fnome="ngModel" ngModel name="descricao" placeholder="Informe descrição do produto" minlength="5">
-        <div *ngIf="fnome.invalid" class="ng-invalid">Campo obrigatório</div>
-        {{fnome.errors | json}}
 
-        <input required ngModel class="form-control" type="text" name="preco"  placeholder="Informe preço">
-        <div *ngIf="fnome.invalid" class="ng-invalid">Campo obrigatório</div>
+        <div *ngIf="fnome.invalid" class="ng-invalid">Informe a descrição do produto</div>
 
-        <input required ngModel class="form-control mb-3" type="text" name="estoque" placeholder="Informe estoque">
-        <div *ngIf="fnome.invalid" class="ng-invalid">Campo obrigatório</div>
+        <input #fpreco="ngModel" required ngModel class="form-control" type="text" name="preco"  placeholder="Informe preço">
+        <div *ngIf="fpreco.invalid" class="ng-invalid">Informe o preço do porduto</div>
 
-        <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary">Cadastrar</button>
-        <button (click)="limparMsg()" type="reset" class="btn btn-outline-danger">Cancelar</button>
+        <input #festoque="ngModel" required ngModel class="form-control" type="text" name="estoque" placeholder="Informe estoque">
+        <div *ngIf="festoque.invalid" class="ng-invalid">Informe o estoque do produto</div>
+        <div class="mt-3">
+            <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary me-2">Cadastrar</button>
+            <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+        </div>
     </form>
-    <label>{{ msg }}</label>
-    <label>{{f.valid}}</label>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-3">
     <table class="table">
         <thead class="bg-success">
             <tr>
@@ -37,7 +36,7 @@
                 <td>{{ prod.preco }}</td>
                 <td>{{ prod.estoque }}</td>
                 <td><a [routerLink]="['/produtos',prod.id]"><i class="material-icons">mode_edit</i></a></td>
-                <td><a (click)="excluir(prod.id)"><i class="material-icons" >delete_forever</i></a></td>
+                <td><a (click)="excluir(prod.id)"><i  role="button"class="material-icons text-primary" >delete_forever</i></a></td>
             </tr>
         </tbody>
     </table>

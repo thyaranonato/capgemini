@@ -7,19 +7,14 @@ import { ProdutoService } from '../produto.service';
   styleUrls: ['./cadastro-produto.component.css']
 })
 export class CadastroProdutoComponent {
+  produtos: any;
 
   constructor(private serviceProduto: ProdutoService) { 
     this.serviceProduto.getAll().subscribe(response => this.produtos = response);
   }
-  msg: string = "";
-  produtos: any;
-
+ 
   gravar(data: any) {
-    this.serviceProduto.gravar(data).subscribe(response => this.msg = "Produto cadastrado com sucesso!");
-  }
-
-  limparMsg() {
-    this.msg = "";
+    this.serviceProduto.gravar(data).subscribe(response => {window.location.reload()});
   }
 
   excluir(id: any) {

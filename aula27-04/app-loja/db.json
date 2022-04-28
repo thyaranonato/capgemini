@@ -17,6 +17,24 @@
       "preco": "8.50",
       "estoque": "80",
       "id": 4
+    },
+    {
+      "descricao": "Batata",
+      "preco": "5.90",
+      "estoque": "30",
+      "id": 5
+    },
+    {
+      "descricao": "Carne",
+      "preco": "50",
+      "estoque": "2",
+      "id": 6
+    },
+    {
+      "descricao": "cenoura",
+      "preco": "9.90",
+      "estoque": "95",
+      "id": 7
     }
   ],
   "usuarios": [
