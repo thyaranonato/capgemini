@@ -27,14 +27,8 @@
     {
       "descricao": "Carne",
       "preco": "50",
-      "estoque": "2",
+      "estoque": "20",
       "id": 6
-    },
-    {
-      "descricao": "cenoura",
-      "preco": "9.90",
-      "estoque": "95",
-      "id": 7
     }
   ],
   "usuarios": [
