@@ -1,5 +1,22 @@
-<p>editaproduto works!</p>
-<p>{{ produto.id }}</p>
-<p>{{ produto.descricao }}</p>
-<p>{{ produto.preco }}</p>
-<p>{{ produto.estoque }}</p> 
+<div class="container">
+    <h1 class="text-center">Edição de Produtos</h1>
+    <input class="form-control mb-3" type="text" [(ngModel)]="produto.id">
+    <input class="form-control mb-3" type="text" [(ngModel)]="produto.descricao">
+    <input class="form-control mb-3" type="text" [(ngModel)]="produto.preco">
+    <input class="form-control mb-3" type="text" [(ngModel)]="produto.estoque">
+    <button class="btn btn-outline-primary" (click)="efetivarAlteracao()">Salvar</button>
+    {{ msg }}
+</div>
+
+<!--
+    property bind
+    component (TS) => template (HTML) EX: [value]="nome"
+
+    event bind
+    template => component EX: (click)="função()"
+
+    two way data bind
+    component => template
+    template => component 
+    EX: [(ngModel)]="nome"
+-->

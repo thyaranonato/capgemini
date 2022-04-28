@@ -11,10 +11,15 @@ export class EditarProdutoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private serviceProduto: ProdutoService) { }
   produto: any;
+  msg: string = "";
 
   ngOnInit(): void {
     let routeParams = this.route.snapshot.paramMap;
     let idProduto: number = Number(routeParams.get('idProduto'));
     this.serviceProduto.getOne(idProduto).subscribe(response => this.produto = response);
+  }
+
+  efetivarAlteracao() {
+    this.serviceProduto.update(this.produto).subscribe(response => this.msg = "Alteração realizada com sucesso!");
   }
 }

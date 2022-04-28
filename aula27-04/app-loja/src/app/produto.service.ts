@@ -19,7 +19,11 @@ export class ProdutoService {
   }
 
   getOne(idProduto: number) {
-    let url = "http://localhost:3000/produtos";
     return this.http.get(`http://localhost:3000/produtos/${idProduto}`);
+  }
+
+  update(data: any) {
+    let url = `http://localhost:3000/produtos/${data.id}`;
+    return this.http.put(url, data);
   }
 }
