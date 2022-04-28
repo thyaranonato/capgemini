@@ -18,7 +18,8 @@
                 <th>Descrição</th>
                 <th>Preço</th>
                 <th>Estoque</th>
-                <th>Ações</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
                 <td>{{ prod.preco }}</td>
                 <td>{{ prod.estoque }}</td>
                 <td><a [routerLink]="['/produtos',prod.id]"><i class="material-icons">mode_edit</i></a></td>
+                <td><a (click)="excluir(prod.id)"><i class="material-icons" >delete_forever</i></a></td>
             </tr>
         </tbody>
     </table>

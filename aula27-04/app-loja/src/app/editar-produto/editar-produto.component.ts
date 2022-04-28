@@ -10,7 +10,7 @@ import { ProdutoService } from '../produto.service';
 export class EditarProdutoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private serviceProduto: ProdutoService) { }
-  produto: any;
+  produto: any = {};
   msg: string = "";
 
   ngOnInit(): void {

@@ -21,4 +21,8 @@ export class CadastroProdutoComponent {
   limparMsg() {
     this.msg = "";
   }
+
+  excluir(id: any) {
+    this.serviceProduto.delete(id).subscribe(response => {window.location.reload()});
+  }
 }

@@ -26,4 +26,9 @@ export class ProdutoService {
     let url = `http://localhost:3000/produtos/${data.id}`;
     return this.http.put(url, data);
   }
+
+  delete(idProduto: number) {
+    let url = `http://localhost:3000/produtos/${idProduto}`;
+    return this.http.delete(url);
+  }
 }
