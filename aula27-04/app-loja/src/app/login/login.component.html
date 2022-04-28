@@ -1,9 +1,14 @@
 <div class="container">
     <h1 class="text-center">Login de Usuário</h1>
     <form #f="ngForm" (ngSubmit)="login(f.value)">
-        <input ngModel class="form-control" type="text" name="email" placeholder="Informe usuário">
-        <input ngModel class="form-control mb-3" type="password" name="senha" placeholder="Informe senha">
-        <button type="submit" class="btn btn-outline-primary">Login</button>
+        <input required ngModel 
+        ngModel #email="ngModel" class="form-control" type="text" name="email" placeholder="Informe usuário">
+        <div *ngIf="email.invalid" class="ng-invalid">Informe usuário</div>
+
+        <input required ngModel #senha="ngModel" class="form-control" type="password" name="senha" placeholder="Informe senha">
+        <div *ngIf="senha.invalid" class="ng-invalid">Informe senha</div>
+
+        <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary mt-3">Login</button>
     </form>
     <a routerLink="/cadastroUsuario">Não é cadastrado?</a>
 </div>
