@@ -11,6 +11,12 @@
       "preco": "10",
       "estoque": "30",
       "id": 3
+    },
+    {
+      "descricao": "Farinha",
+      "preco": "8.50",
+      "estoque": "80",
+      "id": 4
     }
   ],
   "usuarios": [

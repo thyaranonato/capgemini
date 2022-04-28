@@ -1,16 +1,24 @@
 <div class="container">
     <h1 class="text-center">Cadastro de Produtos</h1>
     <form #f="ngForm" (ngSubmit)="gravar(f.value)">
-        <input ngModel class="form-control" type="text" name="descricao" placeholder="Informe descrição do produto">
-        <input ngModel class="form-control" type="text" name="preco"  placeholder="Informe preço">
-        <input ngModel class="form-control mb-3" type="text" name="estoque" placeholder="Informe estoque">
-        <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+        <input required class="form-control" type="text" #fnome="ngModel" ngModel name="descricao" placeholder="Informe descrição do produto" minlength="5">
+        <div *ngIf="fnome.invalid" class="ng-invalid">Campo obrigatório</div>
+        {{fnome.errors | json}}
+
+        <input required ngModel class="form-control" type="text" name="preco"  placeholder="Informe preço">
+        <div *ngIf="fnome.invalid" class="ng-invalid">Campo obrigatório</div>
+
+        <input required ngModel class="form-control mb-3" type="text" name="estoque" placeholder="Informe estoque">
+        <div *ngIf="fnome.invalid" class="ng-invalid">Campo obrigatório</div>
+
+        <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary">Cadastrar</button>
         <button (click)="limparMsg()" type="reset" class="btn btn-outline-danger">Cancelar</button>
     </form>
     <label>{{ msg }}</label>
+    <label>{{f.valid}}</label>
 </div>
 
-<div>
+<div class="container mt-5">
     <table class="table">
         <thead class="bg-success">
             <tr>
