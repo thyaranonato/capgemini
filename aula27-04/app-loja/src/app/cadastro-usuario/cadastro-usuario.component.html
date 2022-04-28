@@ -1,10 +1,19 @@
 <div class="container">
     <h1 class="text-center">Cadastro de Usuários</h1>
     <form #f="ngForm" (ngSubmit)="(f.value)">
-        <input ngModel class="form-control" type="text" name="nome" placeholder="Informe nome">
-        <input ngModel class="form-control" type="text" name="email"  placeholder="Informe email">
-        <input ngModel class="form-control mb-3" type="text" name="senha" placeholder="Informe senha">
-        <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
-        <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+        <input required ngModel #fnome="ngModel" class="form-control" type="text" name="nome" placeholder="Informe nome" minlength="3">
+        <div *ngIf="fnome.invalid" class="ng-invalid">Informe nome</div>
+
+        <input required ngModel class="form-control" type="text" name="email"  placeholder="Informe email" #email="ngModel">
+        <div *ngIf="email.invalid" class="ng-invalid">Informe email</div>
+
+        <input required ngModel class="form-control" type="text" name="senha" placeholder="Informe senha" #senha="ngModel" minlength="6">
+        <div *ngIf="senha.invalid" class="ng-invalid">Informe senha</div>
+
+
+        <div class="mt-3">
+            <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary me-2">Cadastrar</button>
+            <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+        </div>
     </form>
 </div>
