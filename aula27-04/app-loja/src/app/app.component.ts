@@ -15,10 +15,15 @@ export class AppComponent {
   }
 
   pegarPerfilUsuarioConectado() {
-    let user = localStorage.getItem("userConectado");
+    let user: (string | null) = localStorage.getItem("userConectado");
     if(user !== null) {
       user = JSON.parse(user);
       this.userLogado = user; 
     }
+  }
+
+  logout() {
+    localStorage.removeItem("userConectado");
+    window.location.reload();
   }
 }

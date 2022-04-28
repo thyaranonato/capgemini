@@ -2,6 +2,8 @@
     <a class="m-2 btn btn-outline-primary" routerLink="home"><i class="align-middle material-icons">home</i></a>
     <a *ngIf="userLogado.perfil=='adm'" class="m-2 btn btn-outline-primary" routerLink="cadastroProduto">Produto</a>
     <a *ngIf="userLogado.perfil=='adm' || userLogado.perfil=='usuario'" class="m-2 btn btn-outline-primary" routerLink="carrinho">Carrinho</a>
-    <a class="m-2 btn btn-outline-primary" routerLink="login">Login</a>
+    <a *ngIf="!userLogado.email" class="m-2 btn btn-outline-primary" routerLink="login">Login</a>
+    <a *ngIf="userLogado.email" class="m-2 btn btn-outline-primary" (click)="logout()">Logout</a>
+    <label class="bg-white" *ngIf="!userLogado.email" for="">{{userLogado.email}}</label>
 </nav>
 <router-outlet></router-outlet>
