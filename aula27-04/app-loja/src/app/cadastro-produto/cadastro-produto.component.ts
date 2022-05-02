@@ -7,7 +7,7 @@ import { ProdutoService } from '../produto.service';
   styleUrls: ['./cadastro-produto.component.css']
 })
 export class CadastroProdutoComponent {
-  produtos: any;
+  produtos: any = [];
 
   constructor(private serviceProduto: ProdutoService) { 
     this.serviceProduto.getAll().subscribe(response => this.produtos = response);
@@ -15,6 +15,10 @@ export class CadastroProdutoComponent {
  
   gravar(data: any) {
     this.serviceProduto.gravar(data).subscribe(response => {window.location.reload()});
+  }
+
+  update(id: any) {
+    this.serviceProduto.update(id).subscribe(response => {window.location.reload()});
   }
 
   excluir(id: any) {
