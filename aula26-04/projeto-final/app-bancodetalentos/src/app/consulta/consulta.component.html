@@ -1,19 +1,18 @@
 <div id="card" *ngFor="let talento of talentos">
     <div class='border-danger card col-4 m-4'>
-        <div class='card-header text-danger'>
-            <a>
-                <i class="material-icons">&#xe254;</i>
-            </a>
-        </div>
         <div class='card-body text-danger'>
             <!-- NOME -->
             <div class='card-title bg-danger text-center'>{{ talento.nome }}</div>
+
             <!--IMAGEM-->
             <img class="card-img-top">
+
             <!--PROFISSÃO-->
             <div class="card-text"><i class="material-icons">&#xe8f9;</i>{{ talento.profissao }}</div>
+
             <!--CIDADE E ESTADO-->
-            <div class="card-text"><i class="material-icons">&#xe55f;</i>{{ talento.cidade }}</div>
+            <div class="card-text"><i class="material-icons">&#xe55f;</i>{{ talento.cidade }} / {{ talento.estado }}</div>
+
             <!--EMAIL E TELEFONE-->
             <div class="card-footer">
                 <i class="material-icons">&#xe0b0;</i>{{ talento.fone }}

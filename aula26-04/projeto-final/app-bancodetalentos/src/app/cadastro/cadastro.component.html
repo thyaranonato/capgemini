@@ -1,46 +1,61 @@
-<h1 class="fs-1 fw-bolder text-center mb-3">Cadastro de talentos</h1>
-
 <h2 class="fs-3 fst-italic text-center mb-3">Preencha o formulário abaixo para se cadastrar no banco de
     talentos
 </h2>
-
 <form class="was-validated" novalidate #f="ngForm" (ngSubmit)="createTalent(f.value)">
     <div class="container mb-3">
+        <!--NOME-->
         <label class="form-label fs-4 fst-italic" for="nome">Nome:</label>
-        <input type="text" placeholder="Informe nome" ngModel name="nome" id="nome" class="form-control" required>
-        <div class="invalid-feedback">
+        <input #nome="ngModel" ngModel type="text" placeholder="Informe nome" name="nome" id="nome" class="form-control" minlength="3" required>
+        <div *ngIf="nome.invalid" class="ng-invalid invalid-feedback">
             Informe o seu nome.
         </div>
 
+        <!--SOBRENOME-->
+        <label class="form-label fs-4 fst-italic" for="sobrenome">Sobrenome:</label>
+        <input #sobrenome="ngModel" ngModel type="text" placeholder="Informe sobrenome" name="sobrenome" id="sobrenome" class="form-control" required minlength="3">
+        <div *ngIf="sobrenome.invalid" class="ng-invalid invalid-feedback">
+            Informe o seu sobrenome.
+        </div>
+
+        <!--FONE-->
         <label class="form-label fs-4 fst-italic" for="fone">Fone:</label>
-        <input type="text" placeholder="Informe fone" ngModel name="fone" id="fone" class="form-control" required>
-        <div class="invalid-feedback">
+        <input #fone="ngModel" ngModel type="text" placeholder="Informe fone" name="fone" id="fone" class="form-control" required>
+        <div *ngIf="fone.invalid" class="ng-invalid invalid-feedback">
             Informe o seu telefone.
         </div>
 
+        <!--EMAIL-->
         <label class="form-label fs-4 fst-italic" for="email">Email:</label>
-        <input type="text" placeholder="Informe email" ngModel name="email" id="email" class="form-control"
-            required>
-        <div class="invalid-feedback">
+        <input #email="ngModel" ngModel type="email" placeholder="Informe email" name="email" id="email" class="form-control" required>
+        <div *ngIf="email.invalid" class="ng-invalid invalid-feedback">
             Informe o seu email.
         </div>
 
+        <!--SENHA-->
+        <label class="form-label fs-4 fst-italic" for="password">Senha:</label>
+        <input #password="ngModel" ngModel type="password" placeholder="******" name="password" id="password" class="form-control" minlength="6" required>
+        <div *ngIf="password.invalid" class="ng-invalid invalid-feedback">
+            Informe a sua senha.
+        </div>
+
+        <!--PROFISSÃO-->
         <label class="form-label fs-4 fst-italic" for="profissao">Profissão:</label>
-        <input type="text" placeholder="Informe profissão" ngModel name="profissao" id="profissao"
-            class="form-control" required>
-        <div class="invalid-feedback">
+        <input #profissao="ngModel" ngModel type="text" placeholder="Informe profissão" name="profissao" id="profissao" class="form-control"
+            required>
+        <div *ngIf="profissao.invalid" class="ng-invalid invalid-feedback">
             Informe a sua profissão.
         </div>
 
+        <!--CIDADE-->
         <label class="form-label fs-4 fst-italic" for="cidade">Cidade:</label>
-        <input type="text" placeholder="Informe cidade" ngModel name="cidade" id="cidade" class="form-control"
-            required>
-        <div class="invalid-feedback">
+        <input #cidade="ngModel" ngModel type="text" placeholder="Informe cidade" name="cidade" id="cidade" class="form-control" required>
+        <div *ngIf="cidade.invalid" class="ng-invalid invalid-feedback">
             Informe a sua cidade.
         </div>
 
+        <!--ESTADO-->
         <label class="form-label fs-4 fst-italic" for="estado">Estado:</label>
-        <select class="form-select" id="estado" ngModel required>
+        <select #estado="ngModel" ngModel class="form-select" id="estado" name="estado" required>
             <option value="" selected>Selecione o seu estado:</option>
             <option value="AC">Acre - AC</option>
             <option value="AL">Alagoas - AL</option>
@@ -70,24 +85,25 @@
             <option value="SE">Sergipe - SE</option>
             <option value="TO">Tocantins - TO</option>
         </select>
-        <div class="invalid-feedback">
+        <div *ngIf="estado.invalid" class="ng-invalid invalid-feedback">
             Selecione o seu estado.
         </div>
     </div>
 
-    <div class="container mb-3">
+    <!--IMAGEM-->
+    <div class="mb-3 container">
         <fieldset>
             <legend class="fs-4 fst-italic">Foto:</legend>
-            <input type="file" id="imagem" ngModel placeholder="Envie uma foto sua" class="form-control" required />
-            <div class="invalid-feedback">
+            <input #imagem="ngModel" ngModel name="imagem" type="file" id="imagem" placeholder="Envie uma foto sua" class="form-control" required />
+            <div *ngIf="imagem.invalid" class="ng-invalid invalid-feedback">
                 É necessário fazer o upload de uma foto sua.
             </div>
         </fieldset>
     </div>
 
+    <h3>{{ msg }}</h3>
     <div class="d-grid gap-2 col-2 mx-auto">
-        <button type="submit" class="btn btn-success">Salvar</button>
+        <button [disabled]="f.invalid" type="submit" class="btn btn-success">Salvar</button>
         <button type="reset" class="btn btn-danger">Cancelar</button>
     </div>
 </form>
-<label>{{ msg }}</label>

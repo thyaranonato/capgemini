@@ -6,11 +6,10 @@ import { CadastroService } from '../cadastro.service';
   templateUrl: './consulta.component.html',
   styleUrls: ['./consulta.component.css']
 })
-
 export class ConsultaComponent {
-  talentos: any;
+  talentos: any
 
   constructor(private serviceCadastro: CadastroService) {
-    this.serviceCadastro.getAll().subscribe(response => this.talentos = response);
+    this.serviceCadastro.getAll().subscribe(response => this.talentos = response)
   }
 }

@@ -7,4 +7,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app-bancodetalentos';
+
+  userLogado: any = {}
+
+  usuarioConectado() {
+    let user: (string | null) = localStorage.getItem("userConectado")
+    if (user != null) {
+      user = JSON.parse(user)
+      this.userLogado = user
+    }
+    console.log(this.userLogado)
+  }
+
+  constructor() {
+    this.usuarioConectado()
+  }
+
+  logOut() {
+    localStorage.removeItem("userConectado")
+    window.location.href = 'login'
+  }
 }
+
+

@@ -1,0 +1,18 @@
+div.ng-invalid {
+  color: red;
+  font-size: smaller;
+  font-style: italic;
+}
+
+label {
+   margin-top: 10px;
+}
+
+h2 {
+   text-align: center;
+}
+
+.eyeicon{
+
+    cursor: pointer;
+}

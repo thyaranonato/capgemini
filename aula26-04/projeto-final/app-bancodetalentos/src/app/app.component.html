@@ -1,6 +1,16 @@
 <nav>
-  <a routerLink="">Home</a>
-  <a routerLink="cadastro">Cadastro</a>
+  <a routerLink="home"><i class="align-middle material-icons">home</i></a>
+
   <a routerLink="consulta">Consulta</a>
+
+  <a *ngIf="!userLogado.email" routerLink="login">Login</a>
+
+  <a *ngIf="userLogado.email" class="form-label py-1 px-2 position-relative" [routerLink]="['/perfil', userLogado.id]"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">Olá,<span class="visually-hidden">unread messages</span>
+  </span>{{userLogado.nome}}</a>
+
+  <button (click)="logOut()" *ngIf="userLogado.email" class="btn btn-danger m-2">
+    Logout
+  </button>
 </nav>
+
 <router-outlet></router-outlet>
