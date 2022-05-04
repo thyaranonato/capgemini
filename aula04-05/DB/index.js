@@ -89,4 +89,18 @@ app.delete('/usuarios/:email', (req, res) => {
     });
 });
 
+app.get('/usuarios/:email', (req, res) => {
+    pool.connect((err, client) => {
+        if(err) {
+            return res.status(401).send('Conexão não autorizada!');
+        }
+        client.query('select * from usuarios where email = $1', [req.params.email], (error, result) => {
+            if(error) {
+                return res.status(403).send('Operação não permitida');
+            }
+            res.status(200).send(result.rows[0]);
+        });
+    });
+});
+
 app.listen(8081, () => console.log('Aplicação em execução na porta 8081!'));
