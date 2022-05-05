@@ -103,4 +103,29 @@ app.get('/usuarios/:email', (req, res) => {
     });
 });
 
+app.put('/usuarios/:email', (req, res) => {
+    pool.connect((err, client) => {
+        if(err) {
+            return res.status(401).send('Conexão não autorizada!');
+        }
+        client.query('select * from usuarios where email = $1', [req.params.email], (error, result) => {
+            if(error) {
+                return res.status(403).send('Operação não permitida');
+            }
+            if(result.rowCount > 0) {
+                client.query('update usuarios set senha=$1, perfil=$2 where email=$3', [req.body.senha, req.body.perfil, req.params.email], (error, result) => {
+                    if(error) {
+                        return res.status(403).send('Operação não permitida');
+                    }
+                    if(result.rowCount > 0) {
+                        return res.status(200).send('Cadastro atualizado com sucesso!!');
+                    };
+                });
+            } else {
+                res.status(200).send('Usuário não encontrado!');
+            }
+        });
+    });
+});
+
 app.listen(8081, () => console.log('Aplicação em execução na porta 8081!'));
