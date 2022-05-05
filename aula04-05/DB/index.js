@@ -8,7 +8,6 @@ app.use(express.json());
 
 // let conString = process.env.SECRET_KEY;
 let conString = process.env.DATABASE_URL;
-let PORT = process.env.PORT;
 
 const pool = new pg.Pool({ connectionString: conString, ssl: { rejectUnauthorized: false } });
 
@@ -130,4 +129,4 @@ app.put('/usuarios/:email', (req, res) => {
     });
 });
 
-app.listen(PORT, () => console.log(`Aplicação em execução na porta ${PORT}!`));
+app.listen(process.env.PORT || 8081, () => console.log(`Aplicação em execução na porta 8081!`));
