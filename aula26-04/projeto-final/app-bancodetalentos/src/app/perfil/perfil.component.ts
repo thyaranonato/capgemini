@@ -20,7 +20,7 @@ export class PerfilComponent implements OnInit {
   }
 
   editar() {
-    this.cadastroService.alterar(this.talento).subscribe(x => this.msg = "Perfil atualizado com sucesso!")
+    this.cadastroService.alterar(this.talento).subscribe(x => {window.location.reload()})
   }
 
   excluir(id: any) {

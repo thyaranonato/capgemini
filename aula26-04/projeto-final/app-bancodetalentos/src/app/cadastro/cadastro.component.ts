@@ -13,8 +13,8 @@ export class CadastroComponent {
   constructor(private serviceCadastro: CadastroService) { }
 
   createTalent(data: any) {
-    data.perfil = "TALENTO"
-    this.serviceCadastro.create(data).subscribe(response => setInterval(() => {window.location.href = 'login'}, 1500));
+    //data.perfil = "TALENTO"
+    this.serviceCadastro.create(data).subscribe(response => setInterval(() => {window.location.href = 'login'}, 1000));
     this.msg = 'Talento cadastrado com sucesso!';
   }
 }
