@@ -19,6 +19,14 @@ export class PerfilComponent implements OnInit {
     this.cadastroService.getOne(idtalento).subscribe(x => this.talento = x)
   }
 
+  visible: boolean = true;
+  changetype: boolean = true;
+
+  viewPassword() {
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
+  }
+
   editar() {
     this.cadastroService.alterar(this.talento).subscribe(x => {window.location.reload()})
   }

@@ -15,7 +15,10 @@
   <input class="form-control" type="text" [(ngModel)]="talento.email">
 
   <label class="form-label">Senha</label>
-  <input class="form-control" type="password" [(ngModel)]="talento.password">
+  <div class="eyeicon">
+    <input class="form-control" type="password" [(ngModel)]="talento.password">
+    <span (click)="viewPassword()"><i [ngClass]="visible?'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span>
+  </div>
 
   <label class="form-label">Profissão</label>
   <input class="form-control" type="text" [(ngModel)]="talento.profissao">

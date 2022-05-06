@@ -1,7 +1,10 @@
 div.ng-invalid {
   color: red;
+  background-color: white;
   font-size: smaller;
   font-style: italic;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
 label {
@@ -13,6 +16,31 @@ h2 {
 }
 
 .eyeicon{
+   position: relative;
+   cursor: pointer;
+}
 
-    cursor: pointer;
+.eyeicon i{
+   position: absolute;
+   right: 10px;
+   top: 10px;
+}
+
+a {
+  margin-left: 5px;
+}
+
+input {
+  margin-bottom: 5px
+}
+
+.botao {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
 }

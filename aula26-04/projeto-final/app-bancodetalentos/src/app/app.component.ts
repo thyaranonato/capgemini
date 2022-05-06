@@ -16,7 +16,6 @@ export class AppComponent {
       user = JSON.parse(user)
       this.userLogado = user
     }
-    console.log(this.userLogado)
   }
 
   constructor() {

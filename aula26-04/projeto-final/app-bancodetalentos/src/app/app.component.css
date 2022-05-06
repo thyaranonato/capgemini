@@ -5,13 +5,13 @@ html, body {
 nav {
     background-color: rosybrown;
     padding: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 nav a {
     text-decoration: none;
     margin-right: 10px;
-    background-color: blanchedalmond;
+    background-color: white;
     padding: 5px;
     border-radius: 20px;
     color: brown;
@@ -22,7 +22,7 @@ nav a {
 
 nav a:hover {
     background-color: brown;
-    color: blanchedalmond;
+    color: white;
 }
 
 button{

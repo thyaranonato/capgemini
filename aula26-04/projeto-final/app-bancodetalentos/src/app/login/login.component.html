@@ -6,17 +6,19 @@
     <input required class="form-control" type="email" #femail="ngModel" ngModel name="email" placeholder="E-mail" />
     <div *ngIf="femail.invalid" class="ng-invalid">Informe seu e-mail</div>
 
-    <input required class="form-control" [type]="changetype?'password':'text'" #fpassword="ngModel" ngModel name="password" placeholder="Senha" />
-    <span class="eyeicon" (click)="viewPassword()"><i [ngClass]="visible?'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span>
+    <div class="eyeicon">
+      <input required class="form-control" [type]="changetype?'password':'text'" #fpassword="ngModel" ngModel name="password" placeholder="Senha" />
+      <span (click)="viewPassword()"><i [ngClass]="visible?'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span>
+    </div>
 
     <div *ngIf="fpassword.invalid" class="ng-invalid">Informe sua senha</div>
 
-    <button [disabled]="f.invalid" class="btn mt-3 btn-primary">Entrar</button>
-
-  <br>
-  <a routerLink="/cadastro">Não tenho cadastro</a>
-   <p>
-    {{ usuarioConectado.perfil }}
-  </p>
+    <div class="botao">
+    <button [disabled]="f.invalid" class="btn mt-2 btn-primary">Entrar</button>
+    </div>
+    <div class="link">
+    <a routerLink="/cadastro">Não tenho cadastro</a>
+    </div>
+    <p> {{ usuarioConectado.perfil }} </p>
 
   <router-outlet></router-outlet>

@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   fazerLogin(dados: any) {
-    console.log(dados)
     this.serviceCadastro.getAll().subscribe((user) => {
       this.usuarios = user;
       this.verificarLogin(dados.email, dados.password, this.usuarios);

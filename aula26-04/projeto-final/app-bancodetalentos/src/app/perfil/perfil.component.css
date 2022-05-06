@@ -10,3 +10,13 @@ text-align: center;
 label{
   font-weight: 600;
 }
+
+.eyeicon {  position: relative;
+  cursor: pointer;
+}
+
+.eyeicon i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
