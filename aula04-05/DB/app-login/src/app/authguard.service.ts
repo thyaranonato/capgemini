@@ -19,7 +19,6 @@ export class AuthguardService implements CanActivate {
 
   usuarioLogado(): boolean {
     let token = this.decodeToken.decodeTokenJWT();
-    console.log(token)
     return token != "";
   }
 }
