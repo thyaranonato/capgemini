@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const pg = require('pg');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -109,6 +110,44 @@ app.get('/usuarios/:email', (req, res) => {
                 return res.status(403).send('Operação não permitida');
             }
             res.status(200).send(result.rows[0]);
+        });
+    });
+});
+
+app.post('/usuarios/login', (req, res) => {
+    pool.connect((err, client) => {
+        if (err) {
+            return res.status(401).send("Conexão não autorizada!")
+        };
+        client.query('select * from usuarios where email = $1', [req.body.email], (error, result) => {
+            if (error) {
+                return res.status(401).send('Operação não permitida!')
+            };
+            if (result.rowCount > 0) {
+                //cripotgrafar a senha enviada e comparar com a recuperada do banco
+                bcrypt.compare(req.body.senha, result.rows[0].senha, (error, results) => {
+                    if (error) {
+                        return res.status(401).send({
+                            message: "Falha na autenticação"
+                        });
+                    };
+                    if (results) { //geração do token
+                        let token = jwt.sign({
+                                email: result.rows[0].email,
+                                perfil: result.rows[0].perfil
+                            },
+                            process.env.JWTKEY, { expiresIn: '1h' });
+                        return res.status(200).send({
+                            message: 'Conectado com sucesso!',
+                            token: token
+                        });
+                    };
+                });
+            } else {
+                return res.status(200).send({
+                    message: 'Usuário não encontrado!'
+                });
+            };
         });
     });
 });
