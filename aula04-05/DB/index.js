@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const pg = require('pg');
+const bcrypt = require('bcrypt');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -46,13 +47,21 @@ app.post('/usuarios', (req, res) => {
             if(result.rowCount > 0) {
                 return res.status(200).send('Registro já existe!');
             }
-            client.query('insert into usuarios (email, senha, perfil) values ($1,$2,$3)', [req.body.email, req.body.senha, req.body.perfil], (error, result) => {
+            bcrypt.hash(req.body.senha, 10, (error, hash) => {
                 if(error) {
-                    return res.status(403).send('Operação não permitida');
+                    return res.status(500).send({ 
+                        message: 'Erro de autenticação!',
+                        error: error.message
+                    });
                 }
-                res.status(201).send({
-                    mensagem: "Usuário cadastrado com sucesso!",
-                    status: 201
+                client.query('insert into usuarios (email, senha, perfil) values ($1,$2,$3)', [req.body.email, hash, req.body.perfil], (error, result) => {
+                    if(error) {
+                        return res.status(403).send('Operação não permitida');
+                    }
+                    res.status(201).send({
+                        mensagem: "Usuário cadastrado com sucesso!",
+                        status: 201
+                    });
                 });
             });
         });
