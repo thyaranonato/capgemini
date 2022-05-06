@@ -1,13 +1,17 @@
+//require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const pg = require('pg');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+// const auth = require('../middlewares/auth');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-let conString = process.env.DATABASE_URL;
+var conString = process.env.DATABASE_URL;
 
 const pool = new pg.Pool({ connectionString: conString, ssl: { rejectUnauthorized: false } });
 
@@ -42,14 +46,57 @@ app.get('/talentos', (req, res) => {
 
 app.get('/talentos/:id', (req, res) => {
     pool.connect((err, client) => {
-        if (err) {
+        if(err) {
             return res.status(401).send("Conexão não autorizada")
         }
         client.query('SELECT * FROM talentos WHERE id = $1', [req.params.id], (error, result) => {
-            if (error) {
+            if(error) {
                 return res.status(401).send('Operação não autorizada')
             }
             res.status(200).send(result.rows[0])
+        })
+    })
+});
+
+app.post('/talentos/login', (req, res) => {
+    pool.connect((err, client) => {
+        if(err) {
+            return res.status(401).send("Conexão não autorizada")
+        }
+        client.query('SELECT * FROM talentos WHERE email = $1', [req.body.email], (error, result) => {
+            if(error) {
+                return res.status(401).send('Operação não autorizada')
+            }
+          if (result.rowCount > 0) {
+            bcrypt.compare(req.body.password, result.rows[0].password, (error, results) => {
+              if(error) {
+                  return res.status(401).send("Falha na autenticação")
+              }
+              if(results) {
+                let token = jwt.sign({
+                  id: result.rows[0].id,
+                  nome: result.rows[0].nome,
+                  sobrenome: result.rows[0].sobrenome,
+                  fone: result.rows[0].fone,
+                  email: result.rows[0].email,
+                  profissao: result.rows[0].profissao,
+                  cidade: result.rows[0].cidade,
+                  estado: result.rows[0].estado,
+                  imagem: result.rows[0].imagem,
+                  perfil: result.rows[0].perfil
+                },
+                process.env.JWTKEY, { expiresIn: '1h' })
+                return res.status(200).send({
+                  message: 'Conectado com sucesso',
+                  token: token
+                })
+              }
+            })
+          } else {
+            return res.status(200).send({
+              message: 'Usuário não encontrado'
+            })
+          }
         })
     })
 });
@@ -66,13 +113,21 @@ app.post('/talentos', (req, res) => {
             if(result.rowCount > 0) {
                 return res.status(208).send('Cadastro já existe!');
             }
-            var sql = 'INSERT INTO talentos (nome, sobrenome, fone, email, password, profissao, cidade, estado, imagem, perfil) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
-            var dados = [req.body.nome, req.body.sobrenome, req.body.fone, req.body.email, req.body.password, req.body.profissao, req.body.cidade, req.body.estado, req.body.imagem, 'talento'];
-            client.query(sql, dados, (error, result) => {
+            bcrypt.hash(req.body.password, 10, (error, hash) => {
+              if(error) {
+                return res.status(500).send({
+                  mensagem: 'Erro de autenticação',
+                  erro: error.message
+                });
+              }
+              var sql = 'INSERT INTO talentos (nome, sobrenome, fone, email, password, profissao, cidade, estado, imagem, perfil) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
+              var dados = [req.body.nome, req.body.sobrenome, req.body.fone, req.body.email, hash, req.body.profissao, req.body.cidade, req.body.estado, req.body.imagem, 'talento'];
+              client.query(sql, dados, (error, result) => {
                 if(error) {
-                    return res.status(401).send('Operação não permitida');
+                  return res.status(401).send('Operação não permitida');
                 }
-                return res.status(201).send({ message: 'Talento cadastrado com sucesso!!' });
+                res.status(201).send({ message: 'Talento cadastrado com sucesso!!' });
+              });
             });
         });
     });
@@ -108,12 +163,12 @@ app.put('/talentos/:id', (req, res) => {
 
 app.delete('/talentos/:id', (req, res) => {
     pool.connect((err, client) => {
-        if (err) {
+        if(err) {
           res.status(401).send("Conexão não autorizada")
         }
 
         client.query('DELETE FROM talentos WHERE id=$1', [req.params.id], (error, result) => {
-            if (error) {
+            if(error) {
               return res.status(401).send("Operação não autorizada")
             }
             res.status(200).send("Excluído com sucesso")
