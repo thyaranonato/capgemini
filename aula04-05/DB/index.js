@@ -1,16 +1,15 @@
-require('dotenv').config();
+//require('dotenv').config();
 const express = require('express');
 const app = express();
 const pg = require('pg');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const login = require('./middlewares/login');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // let conString = process.env.SECRET_KEY;
 let conString = process.env.DATABASE_URL;
-
 const pool = new pg.Pool({ connectionString: conString, ssl: { rejectUnauthorized: false } });
 
 app.get('/', (req, res) => {
@@ -175,6 +174,10 @@ app.put('/usuarios/:email', (req, res) => {
             }
         });
     });
+});
+
+app.post('/produtos', login, (req, res) => {
+    res.status(200).send('OK');
 });
 
 app.listen(process.env.PORT || 8081, () => console.log(`Aplicação em execução na porta 8081!`));
