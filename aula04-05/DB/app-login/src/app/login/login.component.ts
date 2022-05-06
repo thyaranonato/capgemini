@@ -1,4 +1,6 @@
+import { AuthenticationService } from './../authentication.service';
 import { Component, OnInit } from '@angular/core';
+import { DecodeTokenService } from '../decode-token.service';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthenticationService, private decodeToken: DecodeTokenService) { }
+
+  logar(form: any) {
+    this.auth.logar(form.email, form.senha).subscribe(token => {
+      localStorage.setItem('token', JSON.stringify(token));
+    });
+  }
+
+  verToken() {
+    let usuario = this.decodeToken.decodeTokenJWT();
+    console.log(usuario);
+  }
 
   ngOnInit(): void {
   }
