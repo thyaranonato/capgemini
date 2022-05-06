@@ -4,10 +4,11 @@ const app = express();
 const pg = require('pg');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const login = require('./middlewares/login');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+app.use(cors());
 // let conString = process.env.SECRET_KEY;
 let conString = process.env.DATABASE_URL;
 const pool = new pg.Pool({ connectionString: conString, ssl: { rejectUnauthorized: false } });
