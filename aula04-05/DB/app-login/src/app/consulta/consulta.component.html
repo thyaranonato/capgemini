@@ -13,7 +13,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr></tr>
+      <tr *ngFor="let cliente of listaClientes">
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.cpf }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.fone }}</td>
+        <td>{{ cliente.genero }}</td>
+        <td>{{ cliente.foto }}</td>
+      </tr>
     </tbody>
   </table>
 </div>

@@ -7,13 +7,15 @@ import { ClienteService } from '../cliente.service';
   styleUrls: ['./consulta.component.css']
 })
 export class ConsultaComponent{
+  listaClientes: any = [];
 
   constructor(private clienteService: ClienteService) {
     this.getAll();
   }
 
   getAll() {
-    this.clienteService.getAll().subscribe(response => console.log(response));
+    this.clienteService.getAll().subscribe(response => { this.listaClientes = response});
+    console.log(this.listaClientes);
   }
 
 }
