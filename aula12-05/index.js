@@ -27,8 +27,9 @@ const pool = new pg.Pool({
     user: 'postgres',
     password: 'admin',
     database: 'postgres',
-    host: 'meubanco'
-});
+    host: 'meubanco',
+    port: 5432
+})
 
 app.get('/conectar', (req, res) => {
     pool.connect((err, client) => {
