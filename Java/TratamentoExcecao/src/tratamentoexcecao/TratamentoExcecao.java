@@ -2,40 +2,94 @@ package tratamentoexcecao;
 
 import javax.swing.JOptionPane;
 
+//import dao.DaoContato;
 import entidades.Contato;
+import exceptions.MinhaExcecao;
 
 public class TratamentoExcecao {
-
 	public static void main(String[] args) {
+		//tratandoExcecao();
+        //usarFinaly();
+//		try {
+//			lancarExcecao();			
+//		} catch(ArithmeticException | NullPointerException e) {
+//			System.out.println(e.toString());
+//		}
+		try {
+			usandoExcecaoPersonalizada();
+		} catch(MinhaExcecao e) {
+			System.out.println(e.toString());
+		}
+	}
+	
+	public static void usandoExcecaoPersonalizada() throws MinhaExcecao {
+		int x = 10;
+		if(x > 5) {
+			throw new MinhaExcecao(x + " é maior que 5!");
+		}
+	}
+	
+	public static void lancarExcecao() throws ArithmeticException, NullPointerException {
+		int idade = 19;
+		if (idade < 18) {
+			throw new ArithmeticException("Você é menor de idade");
+		}
+		
+		float peso = 98;
+		if (peso < 100) {
+			throw new NullPointerException("Você ainda pode engordar 2kg");
+		}
+	}
+	
+	public static void tratandoExcecao() {
 		Contato ct = new Contato();
 		int x = 10;
 		int y = 2;
 		try {
-			int z = x / y;			
+			int[] numeros = { 10, 20, 30 };
+			System.out.println(numeros[2]);
+
+			int z = x / y;
 			System.out.println(z);
-			
-			ct.setNome("Maria");
+
+			ct.setNome("maria");
 			System.out.println(ct.getNome());
-			
+
 			String speso = JOptionPane.showInputDialog("Informe peso");
 			float peso = Float.parseFloat(speso);
-			
-			int[] numeros = {10, 20, 30};
-			System.out.println(numeros[2]);
-		} catch(ArithmeticException e) {
-			System.out.println(" Não é possível dividir por 0");
-			System.out.println(e.toString());
-			System.out.println(e.getMessage());
-			System.out.println(e.getStackTrace().toString());
-		} catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("Posição inválida!");
-		} catch(NullPointerException e) {
-			System.out.println("Erro na execução do programa!" + e.getMessage());
-			System.out.println(e.toString());
-		} catch(NumberFormatException e) {
+
+		} catch (ArithmeticException e) {
+			System.out.println("Não é possivel dividir por zero");
+			System.out.println("tostring: " + e.toString());
+			System.out.println("Message: " + e.getMessage());
+		}
+
+		catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Posição inválida");
+		}
+
+		catch (NullPointerException e) {
+			System.out.println("Exceção na execuçaõ do programa: " + e.toString());
+		}
+
+		catch (NumberFormatException e) {
 			System.out.println("Entrada incorreta: " + e.getMessage());
+		}
+	}
+
+	public static void usarFinaly() {
+		try {
+			System.out.println("Conectou no banco");
+			int x = 10;
+			int y = 0;
+			int z = x / y;
+		} catch (Exception e) {
+			System.out.println("Ocorreu erro");
+		} finally {
+			System.out.println("Fechou conexão");
 		}
 
 	}
+
 
 }
