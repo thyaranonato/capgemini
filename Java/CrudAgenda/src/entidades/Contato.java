@@ -5,6 +5,12 @@ public class Contato {
 	private String nome;
 	private String email;
 	
+	
+	@Override
+	public String toString() {
+		return "Contato [id=" + id + ", nome=" + nome + ", email=" + email + "]";
+	}
+
 	public Contato() {
 	}
 	
