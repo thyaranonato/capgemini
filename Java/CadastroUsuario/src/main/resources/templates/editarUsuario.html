@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Editar Usuário</title>
+    </head>
+
+    <body>
+        <h1>Edição de usuários</h1>  
+        <form th:action="@{/usuario/editar}" th:object="${usuario}" method="post">
+            <label>Id</label>
+            <input type="text" th:field="*{id}" readonly />
+            <label>Email</label>
+            <input type="text" th:field="*{email}" placeholder="Informeo seu email" />
+            <label>Perfil</label>
+            <input type="text" th:field="*{perfil}" placeholder="Informe o seu perfil" />
+            <button type="submit">Gravar</button>
+        </form>     
+    </body>
+</html>
