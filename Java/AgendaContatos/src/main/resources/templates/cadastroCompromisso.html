@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cadastra Contato</title>
+    </head>
+    <body>
+      <h1>Cadastro de compromissos</h1>
+    <form th:action="@{/cadastrar}" th:object="${compromissoDTO}" method="post">
+            <label>Data</label>
+            <input type="date" th:field="*{data}" placeholder="Informe data" />
+            <label>Hora</label>
+            <input type="time" step="2" th:field="*{hora}" placeholder="Informe hora" />
+            <label>Local</label>
+            <input type="text" th:field="*{local}" placeholder="Informe local" />
+            <select th:field="*{idcontato}")>
+                <option th:each="contato : ${contatos}" 
+                        th:value="${contato.id}" 
+                        th:text="${contato.nome}"></option>
+            </select>
+      	<button type="submit">Gravar</button>
+      </form>
+    </body>
+</html>
