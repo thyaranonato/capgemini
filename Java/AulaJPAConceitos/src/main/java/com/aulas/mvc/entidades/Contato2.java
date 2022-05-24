@@ -5,24 +5,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
-public class Contato {
+@Table(name = "tb_contato")
+public class Contato2 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
 	private String email;
 	@OneToOne(mappedBy = "contato")
-	private Compromisso compromisso;
-
-	public Contato(int id, String nome, String email) {
+	private Compromisso2 compromisso;
+	
+	public Contato2(int id, String nome, String email, Compromisso2 compromisso) {
+		super();
 		this.id = id;
 		this.nome = nome;
-		this.email = email;;
+		this.email = email;
+		this.compromisso = compromisso;
 	}
 
-	public Contato() {
+	public Compromisso2 getCompromisso() {
+		return compromisso;
+	}
+
+	public void setCompromisso(Compromisso2 compromisso) {
+		this.compromisso = compromisso;
+	}
+
+	public Contato2() {
 	}
 
 	public int getId() {
