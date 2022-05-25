@@ -4,15 +4,15 @@ public class ContaBanco {
 	private int id;
 	private double saldo;
 	
-	public double sacar(double saldo, double n) throws Exception {
-		if(saldo <= 0) {
+	public void sacar(double valor) throws Exception {
+		if(valor >= saldo) {
 			throw new Exception("Não é possível realizar o saque.");
 		}
-		return saldo - n;
+		saldo -= valor;
 	}
 	
-	public double depositar(double saldo, double n) {
-		return saldo + n;
+	public void depositar(double valor) {
+		saldo += valor;
 	}
 	
 	public ContaBanco(int id, double saldo) {
