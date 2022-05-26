@@ -1,0 +1,44 @@
+package com.example.talentos.services;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.talentos.dto.TalentoDTO;
+import com.example.talentos.entidades.Talento;
+import com.example.talentos.repositorys.TalentoRepositorio;
+import com.example.talentos.service.exceptions.RecursoNaoEncontrado;
+
+@Service
+public class TalentoService {
+	@Autowired
+	TalentoRepositorio repo;
+	
+	public List<TalentoDTO> getAll() {
+		List<Talento> talentos = repo.findAll();
+		
+		List <TalentoDTO> talentosDTO = new ArrayList<>();
+		
+		for(Talento talent : talentos) {
+			talentosDTO.add(new TalentoDTO(talent));
+		}
+		
+		return talentosDTO;
+	}
+	
+	public TalentoDTO create(Talento talento) {
+		 Talento talent = repo.save(talento);
+		 return new TalentoDTO(talent);
+	}
+	
+	public TalentoDTO getById(int id) {
+		Optional<Talento> obj = repo.findById(id);
+		Talento user = obj.orElseThrow(() -> new RecursoNaoEncontrado("Talento não encontrado!"));
+		
+		return new TalentoDTO(user);
+	}
+
+}

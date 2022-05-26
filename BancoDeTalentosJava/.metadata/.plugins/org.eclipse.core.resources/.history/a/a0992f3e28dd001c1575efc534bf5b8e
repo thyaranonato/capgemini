@@ -1,0 +1,12 @@
+INSERT INTO talento (nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil) VALUES ('Mariana', 'Souza', '2365-6589', 'mari@email.com', '1234', 'Designer', 'Campo Grande', 'Mato Grosso do Sul', 'Talento');
+INSERT INTO talento (nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil) VALUES ('Camila', 'Pereira', '2365-6589', 'cami@email.com', '1234', 'Professora', 'Curitiba', 'Paraná', 'Talento');
+INSERT INTO talento (nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil) VALUES ('João', 'da Silva', '2365-6589', 'joao@email.com', '1234', 'Desenvolvedor', 'Palhoça', 'Santa Catarina', 'Talento');
+INSERT INTO talento (nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil) VALUES ('Pedro', 'Campos', '2365-6589', 'pedro@email.com', '1234', 'Designer', 'Foz do Iguaçu', 'Paraná', 'Talento');
+
+insert into area_profissional(area) values('Tecnologia');
+insert into area_profissional(area) values('Engenharia');
+insert into area_profissional(area) values('Saúde');
+
+INSERT INTO TALENTO_AREA(TALENTO_ID, AREA_ID,)VALUES('3','2');
+INSERT INTO TALENTO_AREA(TALENTO_ID, AREA_ID,)VALUES('2','1');
+INSERT INTO TALENTO_AREA(TALENTO_ID, AREA_ID,)VALUES('4','3');

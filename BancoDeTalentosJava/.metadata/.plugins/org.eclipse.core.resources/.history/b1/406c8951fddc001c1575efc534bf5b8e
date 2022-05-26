@@ -1,0 +1,5 @@
+package com.example.talentos.service.exceptions;
+
+public class RecursoNaoEncontrado {
+
+}

@@ -1,0 +1,31 @@
+package com.example.talentos.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.talentos.dto.TalentoDTO;
+import com.example.talentos.entidades.Talento;
+import com.example.talentos.repositorys.TalentoRepositorio;
+
+@Service
+public class TalentoService {
+	@Autowired
+	TalentoRepositorio repo;
+	
+	public List<TalentoDTO> getAll() {
+		List<Talento> talentos = repo.findAll();
+		
+		List <TalentoDTO> talentosDTO = new ArrayList<>();
+		
+		for(Talento user : talentos) {
+			talentosDTO.add(new TalentoDTO(user));
+		}
+		
+		return talentosDTO;
+		
+	}
+
+}

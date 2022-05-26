@@ -1,0 +1,1 @@
+insert into talento(nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil) values('Thyara', 'Nonato', '48998043505', 'thyara@gmail.com', '123456', 'Desenvolvedora', 'Florianópolis, 'Santa Catarina', 'talento');
