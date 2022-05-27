@@ -37,22 +37,25 @@ public class UsuarioController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<UsuarioDTO> getOneById(@PathVariable("id") int id) {
-		try {
-			UsuarioDTO userDTO = service.getOneById(id);
-			return ResponseEntity.status(HttpStatus.OK).body(userDTO);			
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
+//		try {
+//			UsuarioDTO userDTO = service.getOneById(id);
+//			return ResponseEntity.status(HttpStatus.OK).body(userDTO);			
+//		} catch (Exception e) {
+//			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//		}
+		UsuarioDTO userDTO = service.getOneById(id);
+		return ResponseEntity.status(HttpStatus.OK).body(userDTO);			
 	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<UsuarioDTO> update(@PathVariable("id") int id, @RequestBody Usuario usuario) {
-		try {
-			return ResponseEntity.status(HttpStatus.OK).body(service.update(id, usuario));
-			
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
+//		try {
+//			return ResponseEntity.status(HttpStatus.OK).body(service.update(id, usuario));
+//			
+//		} catch (Exception e) {
+//			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//		}
+		return ResponseEntity.status(HttpStatus.OK).body(service.update(id, usuario));
 	}
 	
 	@DeleteMapping("/{id}")
