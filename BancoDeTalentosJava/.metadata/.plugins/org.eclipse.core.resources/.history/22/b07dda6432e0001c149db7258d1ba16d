@@ -1,0 +1,32 @@
+package com.example.talentos.services;
+
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.talentos.entidades.AreaProfissional;
+import com.example.talentos.repositorys.AreaProfissionalRepositorio;
+import com.example.talentos.service.exceptions.RecursoNaoEncontrado;
+
+@Service
+public class AreaProfissionalService {
+	@Autowired
+	AreaProfissionalRepositorio repo;
+	
+	public List<AreaProfissional> getAll() {
+		List<AreaProfissional> area = repo.findAll();
+				
+		return area;
+	}
+	
+	public AreaProfissional getById(int id) {
+		Optional<AreaProfissional> obj = repo.findById(id);
+		AreaProfissional area = obj.orElseThrow(() -> new RecursoNaoEncontrado("Talento não encontrado!"));
+		
+		return area;
+	}
+	
+}

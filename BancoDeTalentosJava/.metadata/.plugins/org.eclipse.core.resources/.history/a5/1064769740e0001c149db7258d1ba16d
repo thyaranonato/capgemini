@@ -1,0 +1,16 @@
+package com.example.talentos.repositorys;
+
+import java.util.Collection;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.example.talentos.entidades.AreaProfissional;
+
+public interface AreaProfissionalRepositorio extends JpaRepository<AreaProfissional, Integer> {
+	
+	@Query(
+	  value = "SELECT * FROM TALENTO_AREA ar WHERE ar.talento_id = ?1, ar.area_id = ?2",
+	  nativeQuery = true)
+	Collection<AreaProfissional> findAllActiveUsersNative(Integer idTalento, Integer idArea);
+}

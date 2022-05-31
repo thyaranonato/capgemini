@@ -7,7 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.talentos.dto.TalentoDTO;
 import com.example.talentos.entidades.AreaProfissional;
+import com.example.talentos.entidades.Talento;
 import com.example.talentos.repositorys.AreaProfissionalRepositorio;
 import com.example.talentos.service.exceptions.RecursoNaoEncontrado;
 
@@ -28,5 +30,24 @@ public class AreaProfissionalService {
 		
 		return area;
 	}
+	
+	public AreaProfissional create(AreaProfissional area) {
+		AreaProfissional ar = repo.save(area);
+		 return ar;
+	}
+	
+	public AreaProfissional update(int id, AreaProfissional area) {
+		Optional<AreaProfissional> obj = repo.findById(id);
+		
+		AreaProfissional ar = obj.orElseThrow(() -> new RecursoNaoEncontrado("Área não encontrada!"));
+		
+		ar.setArea(area.getArea());
 
+		ar = repo.save(ar);
+		return ar;
+	}
+	
+	public void delete(int id) {
+		repo.deleteById(id);
+	}
 }

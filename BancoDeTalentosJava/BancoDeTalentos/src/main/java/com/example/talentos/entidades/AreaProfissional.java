@@ -1,14 +1,15 @@
 package com.example.talentos.entidades;
 
 import java.io.Serializable;
-import java.util.List;
+import java.time.Instant;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 @Entity
 public class AreaProfissional implements Serializable {
@@ -18,17 +19,30 @@ public class AreaProfissional implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String area;
-	@OneToMany(fetch = FetchType.LAZY)
-	private List<Talento> talento;
 	
-	public List<Talento> getTalento() {
-		return talento;
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createdAt;
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant updatedAt;
+	
+	public Instant getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setTalento(List<Talento> talento) {
-		this.talento = talento;
+	public Instant getUpdatedAt() {
+		return updatedAt;
 	}
-
+	
+	@PrePersist
+	public void prePersist() {
+		createdAt = Instant.now();
+	}
+	
+	@PreUpdate
+	public void preUpdate() {
+		updatedAt = Instant.now();
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -50,11 +64,10 @@ public class AreaProfissional implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AreaProfissional(int id, String area, List<Talento> talento) {
+	public AreaProfissional(int id, String area) {
 		super();
 		this.id = id;
 		this.area = area;
-		this.talento = talento;
 	}
 
 	

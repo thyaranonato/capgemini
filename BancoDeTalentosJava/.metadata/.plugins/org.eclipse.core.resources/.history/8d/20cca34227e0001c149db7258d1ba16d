@@ -1,0 +1,10 @@
+
+insert into area_profissional(area) values('Tecnologia');
+insert into area_profissional(area) values('Engenharia');
+insert into area_profissional(area) values('Saúde');
+insert into area_profissional(area) values('Educação');
+
+INSERT INTO talento (nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil, area) VALUES ('Mariana', 'Souza', '2365-6589', 'mari@email.com', '1234', 'Designer', 'Campo Grande', 'Mato Grosso do Sul', 'Talento', [{ "id: 1" }]);
+INSERT INTO talento (nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil) VALUES ('Camila', 'Pereira', '2365-6589', 'cami@email.com', '1234', 'Professora', 'Curitiba', 'Paraná', 'Talento');
+INSERT INTO talento (nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil) VALUES ('João', 'da Silva', '2365-6589', 'joao@email.com', '1234', 'Desenvolvedor', 'Palhoça', 'Santa Catarina', 'Talento');
+INSERT INTO talento (nome, sobrenome, fone, email, password, profissao, cidade, estado, perfil) VALUES ('Pedro', 'Campos', '2365-6589', 'pedro@email.com', '1234', 'Designer', 'Foz do Iguaçu', 'Paraná', 'Talento');

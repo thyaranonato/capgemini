@@ -2,14 +2,18 @@ package com.example.talentos.entidades;
 
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 @Entity
 public class Talento implements Serializable  {
@@ -28,8 +32,31 @@ public class Talento implements Serializable  {
 	private String estado;
 	private String perfil;
 	
-	@OneToMany(mappedBy = "talento", fetch = FetchType.EAGER)
+	@OneToMany
 	private List<AreaProfissional> area;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createdAt;
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant updatedAt;
+	
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+
+	public Instant getUpdatedAt() {
+		return updatedAt;
+	}
+	
+	@PrePersist
+	public void prePersist() {
+		createdAt = Instant.now();
+	}
+	
+	@PreUpdate
+	public void preUpdate() {
+		updatedAt = Instant.now();
+	}
 	
 	public List<AreaProfissional> getArea() {
 		return area;

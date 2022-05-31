@@ -8,6 +8,15 @@ import com.example.talentos.entidades.AreaProfissional;
 import com.example.talentos.entidades.Talento;
 
 public class TalentoDTO {
+	private int id;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private String nome;
 	private String sobrenome;
 	private String fone;
@@ -23,6 +32,7 @@ public class TalentoDTO {
 	}
 	
 	public TalentoDTO(Talento talento) {
+		this.id = talento.getId();
 		this.nome = talento.getNome();
 		this.sobrenome = talento.getSobrenome();
 		this.fone = talento.getFone();
@@ -33,9 +43,11 @@ public class TalentoDTO {
 		this.area = talento.getArea();
 	}
 	
-	public TalentoDTO(String nome, String sobrenome, String fone, String email, String profissao, String cidade,
+
+	public TalentoDTO(int id, String nome, String sobrenome, String fone, String email, String profissao, String cidade,
 			String estado, List<AreaProfissional> area) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.fone = fone;
@@ -45,7 +57,6 @@ public class TalentoDTO {
 		this.estado = estado;
 		this.area = area;
 	}
-
 
 	public List<AreaProfissional> getArea() {
 		return area;
