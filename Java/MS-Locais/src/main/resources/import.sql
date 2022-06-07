@@ -1,0 +1,2 @@
+insert into tb_local(descricao, endereco, ocupado)values('Clube 25 de Julho', 'Rua da Saudade', false);
+insert into tb_local(descricao, endereco, ocupado)values('Clube 15', 'Rua do Esquecimento', false);
