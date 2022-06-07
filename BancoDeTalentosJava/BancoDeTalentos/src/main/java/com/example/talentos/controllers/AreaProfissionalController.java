@@ -51,12 +51,8 @@ public class AreaProfissionalController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> delete(@PathVariable("id") int id) {
-		try {
-			service.delete(id);
-			return ResponseEntity.status(HttpStatus.ACCEPTED).body("Área excluída com sucesso!");
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Área não encontrada!");
-		}
+		service.delete(id);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
 }

@@ -1,0 +1,39 @@
+package com.example.talentos.controllertest;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.example.talentos.entidades.Talento;
+import com.example.talentos.services.TalentoService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class TalentoControllerTest {
+	private int idExistente;
+	private int idInexistente;
+	private Talento talentoExistente;
+	private Talento talentoNovo;
+	
+	@Autowired
+	private MockMvc mockMvc;
+	
+	@MockBean
+	private TalentoService service;
+	
+	@Autowired
+	ObjectMapper objectMapper;
+	
+	@BeforeEach
+	void setup() {
+		idExistente = 1;
+		idInexistente = 2;
+		
+	}
+	
+	
+}

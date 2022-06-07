@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.talentos.dto.TalentoDTO;
@@ -48,6 +49,10 @@ public class AreaProfissionalService {
 	}
 	
 	public void delete(int id) {
-		repo.deleteById(id);
+		try {
+			repo.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			throw new RecursoNaoEncontrado("Talento não encontrado!");
+		}
 	}
 }
