@@ -1,4 +1,4 @@
-package com.aulas.mvc;
+package com.aulas.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
