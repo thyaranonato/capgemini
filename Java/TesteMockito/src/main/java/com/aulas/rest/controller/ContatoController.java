@@ -1,5 +1,7 @@
 package com.aulas.rest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,4 +51,10 @@ public class ContatoController {
     	return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
  
 	}
+	
+	@GetMapping("contato")
+	public ResponseEntity<List<Contato>> pesquisarTodos() {
+		return ResponseEntity.status(HttpStatus.OK).body(service.getAllC());
+	}
+	
 }
