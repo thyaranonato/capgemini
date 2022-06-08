@@ -7,11 +7,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
@@ -33,7 +32,7 @@ public class Talento implements Serializable  {
 	private String estado;
 	private String perfil;
 	
-	@OneToMany
+	@ManyToMany
 	private List<AreaProfissional> area;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
